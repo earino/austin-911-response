@@ -1,0 +1,288 @@
+{
+  "dataset": "austin-911-response",
+  "release_version": "2026.09",
+  "release_tag": "v2026.09",
+  "repository": "https://github.com/earino/austin-911-response",
+  "visibility": "private (publication requires explicit authorisation)",
+  "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
+  "artifact_job": "austin-003",
+  "staging_release": 391742263,
+  "staging_release_tag": "job-austin-003",
+  "staging_repo": "earino/dataset-factory-staging",
+  "construction_commit": "06d7002bc01933e4c094bbe84e4d9899572a893f",
+  "gate_version": "1.3.0",
+  "gate_command": "python3 code/qualify_dataset.py <dataset-dir>",
+  "measurements": {
+    "clock_offset": {
+      "command": "python3 code/measure_clock_offset.py 2000 --json",
+      "definition": "(first_unit_arrived_datetime - response_datetime) - response_time",
+      "rows_measured": 2000,
+      "sampling": "deterministic: first N rows in catalogue :id order",
+      "median_seconds": -57.0,
+      "mean_seconds": -53.526,
+      "p05_seconds": -206.0,
+      "p95_seconds": 0.0,
+      "min_seconds": -468.0,
+      "max_seconds": 6041.0,
+      "negative_rows": 1890,
+      "exact_zero_rows": 55,
+      "positive_rows": 55
+    },
+    "extraction_cost": {
+      "command": "python3 code/build.py --out /tmp/extract --built-at <recorded>",
+      "http_requests_total": 69,
+      "breakdown": {
+        "aggregate_queries": 15,
+        "page_requests": 54,
+        "aggregate_detail": "1 row count + 10 threshold probes + 1 re-measure + 3 per-split counts",
+        "pages_by_split": {
+          "train": 29,
+          "eval": 15,
+          "holdout": 10
+        },
+        "page_size": 20000
+      },
+      "wall_clock_seconds": 353.7,
+      "machine": "2 vCPU / 2 GB worker",
+      "output_bytes_approx": 136000000,
+      "credential_required": false,
+      "method": "aggregate queries counted by wrapping build.get_json; paging is arithmetic over measured per-split row counts and the page size"
+    },
+    "threshold_search": {
+      "rule": "largest tested T whose training-window rate is at or above the 0.40 target",
+      "probes": [
+        {
+          "t": 10800,
+          "above": 26590,
+          "rate": 0.046471
+        },
+        {
+          "t": 5400,
+          "above": 64869,
+          "rate": 0.113372
+        },
+        {
+          "t": 2700,
+          "above": 125867,
+          "rate": 0.219978
+        },
+        {
+          "t": 1320,
+          "above": 215808,
+          "rate": 0.377168
+        },
+        {
+          "t": 660,
+          "above": 349894,
+          "rate": 0.61151
+        },
+        {
+          "t": 960,
+          "above": 270820,
+          "rate": 0.473313
+        },
+        {
+          "t": 1140,
+          "above": 239627,
+          "rate": 0.418797
+        },
+        {
+          "t": 1200,
+          "above": 231025,
+          "rate": 0.403763
+        },
+        {
+          "t": 1260,
+          "above": 223179,
+          "rate": 0.39005
+        },
+        {
+          "t": 1200,
+          "above": 231025,
+          "rate": 0.403763
+        }
+      ],
+      "chosen_seconds": 1200,
+      "training_rate_at_chosen": 0.403763,
+      "why_not_1260": "0.390050 falls below the 0.40 target",
+      "source": "the extract's own manifest.json threshold block"
+    },
+    "duplicate_identifiers": {
+      "source_rows": 1049636,
+      "source_distinct_incident_numbers": 1049612,
+      "repeated_identifiers": 24,
+      "repeated_by_split": {
+        "train": 11,
+        "eval": 7,
+        "holdout": 6
+      },
+      "with_differing_labels": 4,
+      "cross_split": 0,
+      "source": "aggregate queries against e687-fx2y plus the gate's recomputation over the rows"
+    }
+  },
+  "assets": {
+    "meta.json": {
+      "asset_name": "meta.json",
+      "bytes": 2121,
+      "sha256": "5dc8aed06c157a35955e7913748609cf6c42be2b2d144f405de41240dd9d45fb"
+    },
+    "private/holdout.csv": {
+      "asset_name": "holdout.csv",
+      "bytes": 24075321,
+      "sha256": "738ff7ec245302ff2a8dcfb1be95dd622b6d8e7acaf8e9a025b1823a430cab7a"
+    },
+    "public/eval.csv": {
+      "asset_name": "eval.csv",
+      "bytes": 35801537,
+      "sha256": "241dee5eb84cfdd5e1101a3453d2af4dea9bdf9dfca549d83323584a6e442d7a"
+    },
+    "public/train.csv": {
+      "asset_name": "train.csv",
+      "bytes": 71546966,
+      "sha256": "6fc37e034447b2e982d737f6d62d0da9a24584d89d25799d5d882ba584604434"
+    },
+    "quality.json": {
+      "asset_name": "quality.json",
+      "bytes": 3434,
+      "sha256": "a7f9c99c5d0c9465e28ef66eee9ffa9c7f15c53d094148567c2ff48c961241a7"
+    }
+  },
+  "package_files": {
+    "DATA_DICTIONARY.md": "2b1ad7f2c375109e4edfb2accdc01d4d3a03daab80d958a08122810f099335e5",
+    "LICENSE.md": "89e281919d79e96baecab94752e9660b6b1c96cce67932565312d008b48b3ae6",
+    "README.md": "d011882596d149a003bd52711f95cea590b847e971ba0ef646529b52fe56e584",
+    "RELEASE_NOTES.md": "3f92eca7d225f5e05f52d1662878f7e38aff2b81ad5fe7abb5abd037228af82d",
+    "REPRODUCE.md": "bbe3d795a7096a4403390263252d4be67e16f58d390dfe1e54894db712a531e7",
+    "SHA256SUMS": "a930ef2af04e1ed5d5982ce673cd51dd9834e258c12f3f4c8104a2ae7f442b48",
+    "VERIFICATION.md": "4c483d112f000cde7180d5941ca30a5c8815f7f42c923d0ea5c3eba5950a87da",
+    "baseline/README.md": "365bd346eafc8942e4220224260f4fe2f28a8b930ba0d7a75f8622780e657167",
+    "baseline/reproduce_baseline.sh": "9a5e5df2be47454fd3f4f68befc0ad163e5901662a0eb567c1b4648e3eb0aa9c",
+    "baseline/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+    "baseline/validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+    "baseline/validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d",
+    "code/build.py": "71f7e3a31c13effbc80f24bc8a7859f9677f9fbab0bac47e5757a5aaa3e4ca55",
+    "code/materialize.py": "787878764b4928ac37d94b15f55716fd0c505c4e91073cd39cb2224ca8ac10f9",
+    "code/measure_clock_offset.py": "88f7b18a05a5b6fbf0ce4f806b690455d02c7ad00a37a2ff28e2cf4a06a112b7",
+    "code/qualify_dataset.py": "71a8cac429656e27dbb631be8488b9f4662580994b115290a243fc1f4b9639f1",
+    "get_dataset.py": "47513c3c7aa2d15828c7ac592cac1bb568d3e5611952c79930117a9d544162ec",
+    "measurements.json": "cb1d1de93a6a1c5913746dc1264c0a0fcedba349198b4ab16bbd4d39d39a9a03"
+  },
+  "baseline_command": "sh baseline/reproduce_baseline.sh ./task",
+  "get_dataset_command": "python3 get_dataset.py --dest ./task",
+  "source": {
+    "name": "Austin Open Data - APD 911 Calls for Service 2023-2026",
+    "dataset_id": "e687-fx2y",
+    "landing_page": "https://datahub.austintexas.gov/d/e687-fx2y",
+    "api": "https://datahub.austintexas.gov/resource/e687-fx2y.json",
+    "accessed": "2026-09-18",
+    "licence": "Public Domain",
+    "licence_evidence": [
+      "Socrata catalog metadata for e687-fx2y reports license = 'Public Domain' (api.us.socrata.com catalog v1, queried 2026-09-18).",
+      "Re-confirmed 2026-09-18 directly from GET https://datahub.austintexas.gov/api/views/e687-fx2y.json: \"license\": {\"name\": \"Public Domain\"}, view name 'APD 911 Calls for Service 2023-2026'."
+    ]
+  },
+  "layout": {
+    "task/meta.json": "meta.json",
+    "task/public/train.csv": "public/train.csv",
+    "task/public/eval.csv": "public/eval.csv",
+    "task/private/holdout.csv": "private/holdout.csv",
+    "task/quality.json": "quality.json"
+  },
+  "files": {
+    "public/train.csv": {
+      "bytes": 71546966,
+      "sha256": "6fc37e034447b2e982d737f6d62d0da9a24584d89d25799d5d882ba584604434"
+    },
+    "public/eval.csv": {
+      "bytes": 35801537,
+      "sha256": "241dee5eb84cfdd5e1101a3453d2af4dea9bdf9dfca549d83323584a6e442d7a"
+    },
+    "private/holdout.csv": {
+      "bytes": 24075321,
+      "sha256": "738ff7ec245302ff2a8dcfb1be95dd622b6d8e7acaf8e9a025b1823a430cab7a"
+    },
+    "meta.json": {
+      "bytes": 2121,
+      "sha256": "5dc8aed06c157a35955e7913748609cf6c42be2b2d144f405de41240dd9d45fb"
+    },
+    "quality.json": {
+      "bytes": 3434,
+      "sha256": "a7f9c99c5d0c9465e28ef66eee9ffa9c7f15c53d094148567c2ff48c961241a7"
+    }
+  },
+  "splits": {
+    "train": {
+      "rows": 572180,
+      "positives": 231025,
+      "positive_rate": 0.403763
+    },
+    "eval": {
+      "rows": 285665,
+      "positives": 109860,
+      "positive_rate": 0.384576
+    },
+    "holdout": {
+      "rows": 191791,
+      "positives": 72450,
+      "positive_rate": 0.377755
+    }
+  },
+  "qualification": {
+    "gate": "skills/dataset-qualification/scripts/qualify_dataset.py",
+    "gate_version": "1.3.0",
+    "result": "PASSED - 33 checks, 0 failed, on the full 1,049,636-row artifact, on the worker",
+    "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
+    "note": "Two earlier runs failed and each failure was a defect worth fixing; see notes.md. austin-001 failed a conflated entity check, austin-002 failed an entity-key claim the source does not make. Neither failure was a data problem."
+  },
+  "baseline": {
+    "job": "austin-baseline-002",
+    "purpose": "one baseline through the runner's existing training and validation contract",
+    "contract": {
+      "train_py_exit": 0,
+      "validate_sh_exit": 0,
+      "contract_ok": true,
+      "eval_auc_from_train_py": "0.7691",
+      "eval_auc_from_validate_py": "0.7691"
+    },
+    "artifact": {
+      "target": "late",
+      "positive_label": 1,
+      "threshold_seconds": 1200,
+      "rows": {
+        "train": 572180,
+        "eval": 285665,
+        "holdout": 191791
+      },
+      "positive_rate": {
+        "train": 0.403763,
+        "eval": 0.384576,
+        "holdout": 0.377755
+      }
+    },
+    "runner_files": {
+      "bundled_sha256": {
+        "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+        "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+        "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
+      },
+      "expected_sha256": {
+        "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+        "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+        "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
+      },
+      "unmodified": true
+    },
+    "dependencies": {
+      "python": "3.13.15",
+      "pandas": "2.3.3",
+      "numpy": "2.5.3",
+      "xgboost": "3.4.1",
+      "scikit-learn": "1.9.1"
+    },
+    "scope": "one baseline only. No agent or harness comparison was run, and none is implied - that is outside this publication milestone."
+  },
+  "scope": "One baseline through the runner's training and validation contract. No agent or harness comparison was run and none is implied.",
+  "published": false,
+  "publication_note": "Prepared for human review. Nothing here has been published."
+}

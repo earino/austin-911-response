@@ -1,0 +1,109 @@
+{
+  "clock_offset": {
+    "command": "python3 code/measure_clock_offset.py 2000 --json",
+    "definition": "(first_unit_arrived_datetime - response_datetime) - response_time",
+    "rows_measured": 2000,
+    "sampling": "deterministic: first N rows in catalogue :id order",
+    "median_seconds": -57.0,
+    "mean_seconds": -53.526,
+    "p05_seconds": -206.0,
+    "p95_seconds": 0.0,
+    "min_seconds": -468.0,
+    "max_seconds": 6041.0,
+    "negative_rows": 1890,
+    "exact_zero_rows": 55,
+    "positive_rows": 55
+  },
+  "extraction_cost": {
+    "command": "python3 code/build.py --out /tmp/extract --built-at <recorded>",
+    "http_requests_total": 69,
+    "breakdown": {
+      "aggregate_queries": 15,
+      "page_requests": 54,
+      "aggregate_detail": "1 row count + 10 threshold probes + 1 re-measure + 3 per-split counts",
+      "pages_by_split": {
+        "train": 29,
+        "eval": 15,
+        "holdout": 10
+      },
+      "page_size": 20000
+    },
+    "wall_clock_seconds": 353.7,
+    "machine": "2 vCPU / 2 GB worker",
+    "output_bytes_approx": 136000000,
+    "credential_required": false,
+    "method": "aggregate queries counted by wrapping build.get_json; paging is arithmetic over measured per-split row counts and the page size"
+  },
+  "threshold_search": {
+    "rule": "largest tested T whose training-window rate is at or above the 0.40 target",
+    "probes": [
+      {
+        "t": 10800,
+        "above": 26590,
+        "rate": 0.046471
+      },
+      {
+        "t": 5400,
+        "above": 64869,
+        "rate": 0.113372
+      },
+      {
+        "t": 2700,
+        "above": 125867,
+        "rate": 0.219978
+      },
+      {
+        "t": 1320,
+        "above": 215808,
+        "rate": 0.377168
+      },
+      {
+        "t": 660,
+        "above": 349894,
+        "rate": 0.61151
+      },
+      {
+        "t": 960,
+        "above": 270820,
+        "rate": 0.473313
+      },
+      {
+        "t": 1140,
+        "above": 239627,
+        "rate": 0.418797
+      },
+      {
+        "t": 1200,
+        "above": 231025,
+        "rate": 0.403763
+      },
+      {
+        "t": 1260,
+        "above": 223179,
+        "rate": 0.39005
+      },
+      {
+        "t": 1200,
+        "above": 231025,
+        "rate": 0.403763
+      }
+    ],
+    "chosen_seconds": 1200,
+    "training_rate_at_chosen": 0.403763,
+    "why_not_1260": "0.390050 falls below the 0.40 target",
+    "source": "the extract's own manifest.json threshold block"
+  },
+  "duplicate_identifiers": {
+    "source_rows": 1049636,
+    "source_distinct_incident_numbers": 1049612,
+    "repeated_identifiers": 24,
+    "repeated_by_split": {
+      "train": 11,
+      "eval": 7,
+      "holdout": 6
+    },
+    "with_differing_labels": 4,
+    "cross_split": 0,
+    "source": "aggregate queries against e687-fx2y plus the gate's recomputation over the rows"
+  }
+}
