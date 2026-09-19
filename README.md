@@ -7,7 +7,7 @@ dispatched**, whether the first police unit will reach the caller later than a f
 - **Version:** `2026.09` — artifact version `e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328`
 - **Rows:** 1,049,636 across three time-separated splits
 - **Source licence:** Public Domain (City of Austin)
-- **Status:** private, prepared for review. No agent or harness comparison has been run.
+- **Status:** public since 2026-09-19, released after explicit operator authorisation. No agent or harness comparison has been run.
 
 Everything needed to verify, rebuild and evaluate this dataset is in this repository: the
 construction script, the qualification gate, the runner used for the baseline, and the download
@@ -23,8 +23,7 @@ python3 code/qualify_dataset.py ./task    # re-runs all 33 qualification checks
 sh baseline/reproduce_baseline.sh ./task  # reproduces the recorded baseline
 ```
 
-`get_dataset.py` needs a credential because this repository is private: either the `gh` CLI,
-already authenticated, or `GITHUB_TOKEN` in the environment.
+`get_dataset.py` downloads from the public release, so it needs no credential. Pass `GITHUB_TOKEN` only if the release repository becomes private again.
 
 ---
 

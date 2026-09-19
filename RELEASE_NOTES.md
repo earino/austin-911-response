@@ -4,8 +4,9 @@ First release. A leakage-checked, time-split prediction dataset built from the C
 public `APD 911 Calls for Service 2023-2026` records: predict, **at the moment a call is
 dispatched**, whether the first unit will reach the caller more than 20 minutes later.
 
-**1,049,636 rows**, three time-separated splits, Public Domain source data. Repository is
-**private**; this release becomes public only on explicit authorisation.
+**1,049,636 rows**, three time-separated splits, Public Domain source data. **Public since
+2026-09-19**, released after explicit operator authorisation. Publication changed no data file,
+tag or checksum.
 
 ## Get it
 

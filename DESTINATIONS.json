@@ -4,9 +4,9 @@
     "huggingface": {
       "repo": "earino/austin-911-response",
       "revision": "v2026.09",
-      "private": true,
+      "private": false,
       "verified": true,
-      "verified_at": "2026-09-19T08:57:52+00:00",
+      "verified_at": "2026-09-19T15:00:00+00:00",
       "files_verified": [
         "data/eval.csv",
         "data/holdout.csv",
@@ -18,15 +18,18 @@
       "size_mismatch": [],
       "loading_check": "run by the worker job and recorded in its report",
       "license_metadata": "Terms declared 2026-09-19: MIT for code and documentation (including the three baseline files from earino/harness_benchmark, released with the copyright holder's permission, credits preserved); CC0-1.0 for our rights in the derived compilation; the source's Public Domain designation, attribution and citation preserved unchanged. Dataset assets unchanged - digests identical to the accepted artifact e4598317e406984f.",
-      "license_metadata_updated": "2026-09-19"
+      "license_metadata_updated": "2026-09-19",
+      "note": "Public since 2026-09-19, after explicit operator authorisation. Verified from an unauthenticated client: the repository page answers 200 and every release asset answers a ranged GET without a credential. Data files, tag and artifact version are unchanged by publication.",
+      "published_at": "2026-09-19",
+      "anonymous_read_verified": true
     },
     "github": {
       "repo": "https://github.com/earino/austin-911-response",
       "release_tag": "v2026.09",
       "release_id": 391804787,
-      "private": true,
+      "private": false,
       "verified": true,
-      "verified_at": "2026-09-18T22:30:00+00:00",
+      "verified_at": "2026-09-19T15:00:00+00:00",
       "files_verified": [
         "private/holdout.csv",
         "public/eval.csv",
@@ -39,9 +42,11 @@
         "clone": "git clone --branch v2026.09 succeeded; all 17 package files matched the recorded hashes and the tag resolved",
         "consumer": "job austin-consumer-002 in a fresh environment with no factory access: exit 0, all five asset digests matched on arrival, sha256sum -c OK, qualification PASSED, baseline reproduced at eval AUC 0.7691"
       },
-      "note": "Private. Public visibility requires explicit human approval; the labelled holdout ships to both destinations when that happens.",
+      "note": "Public since 2026-09-19, after explicit operator authorisation. Verified from an unauthenticated client: the repository page answers 200 and every release asset answers a ranged GET without a credential. Data files, tag and artifact version are unchanged by publication.",
       "license_metadata": "Terms declared 2026-09-19: MIT for code and documentation (including the three baseline files from earino/harness_benchmark, released with the copyright holder's permission, credits preserved); CC0-1.0 for our rights in the derived compilation; the source's Public Domain designation, attribution and citation preserved unchanged. Dataset assets unchanged - digests identical to the accepted artifact e4598317e406984f.",
-      "license_metadata_updated": "2026-09-19"
+      "license_metadata_updated": "2026-09-19",
+      "published_at": "2026-09-19",
+      "anonymous_read_verified": true
     }
   },
   "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
@@ -53,5 +58,11 @@
     "compilation_spdx": "CC0-1.0",
     "source_spdx": "LicenseRef-Public-Domain",
     "rule": "CC0 is not a blanket override of upstream terms; each dataset uses terms compatible with its sources."
+  },
+  "publication": {
+    "published": true,
+    "authorised_by": "operator, explicit approval of public visibility for the dataset and its infrastructure",
+    "authorised_on": "2026-09-19",
+    "evidence": "site-publish.py publish receipt complete; site-publish.py verify status=verified"
   }
 }
