@@ -1,0 +1,7 @@
+{
+  "catalog_url": "https://earino.github.io/dataset-factory-site/",
+  "description": "New prediction tasks from real-world data. Sources, checks, baselines and reproducible releases.",
+  "kind": "dataset",
+  "schema_version": 1,
+  "title": "Dataset Factory"
+}

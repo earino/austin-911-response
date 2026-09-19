@@ -1,126 +1,6 @@
 {
-  "dataset": "austin-911-response",
-  "release_version": "2026.09",
-  "release_tag": "v2026.09",
-  "repository": "https://github.com/earino/austin-911-response",
-  "visibility": "private (publication requires explicit authorisation)",
-  "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
   "artifact_job": "austin-003",
-  "staging_release": 391742263,
-  "staging_release_tag": "job-austin-003",
-  "staging_repo": "earino/dataset-factory-staging",
-  "construction_commit": "06d7002bc01933e4c094bbe84e4d9899572a893f",
-  "gate_version": "1.3.0",
-  "gate_command": "python3 code/qualify_dataset.py <dataset-dir>",
-  "measurements": {
-    "clock_offset": {
-      "command": "python3 code/measure_clock_offset.py 2000 --json",
-      "definition": "(first_unit_arrived_datetime - response_datetime) - response_time",
-      "rows_measured": 2000,
-      "sampling": "deterministic: first N rows in catalogue :id order",
-      "median_seconds": -57.0,
-      "mean_seconds": -53.526,
-      "p05_seconds": -206.0,
-      "p95_seconds": 0.0,
-      "min_seconds": -468.0,
-      "max_seconds": 6041.0,
-      "negative_rows": 1890,
-      "exact_zero_rows": 55,
-      "positive_rows": 55
-    },
-    "extraction_cost": {
-      "command": "python3 code/build.py --out /tmp/extract --built-at <recorded>",
-      "http_requests_total": 69,
-      "breakdown": {
-        "aggregate_queries": 15,
-        "page_requests": 54,
-        "aggregate_detail": "1 row count + 10 threshold probes + 1 re-measure + 3 per-split counts",
-        "pages_by_split": {
-          "train": 29,
-          "eval": 15,
-          "holdout": 10
-        },
-        "page_size": 20000
-      },
-      "wall_clock_seconds": 353.7,
-      "machine": "2 vCPU / 2 GB worker",
-      "output_bytes_approx": 136000000,
-      "credential_required": false,
-      "method": "aggregate queries counted by wrapping build.get_json; paging is arithmetic over measured per-split row counts and the page size"
-    },
-    "threshold_search": {
-      "rule": "largest tested T whose training-window rate is at or above the 0.40 target",
-      "probes": [
-        {
-          "t": 10800,
-          "above": 26590,
-          "rate": 0.046471
-        },
-        {
-          "t": 5400,
-          "above": 64869,
-          "rate": 0.113372
-        },
-        {
-          "t": 2700,
-          "above": 125867,
-          "rate": 0.219978
-        },
-        {
-          "t": 1320,
-          "above": 215808,
-          "rate": 0.377168
-        },
-        {
-          "t": 660,
-          "above": 349894,
-          "rate": 0.61151
-        },
-        {
-          "t": 960,
-          "above": 270820,
-          "rate": 0.473313
-        },
-        {
-          "t": 1140,
-          "above": 239627,
-          "rate": 0.418797
-        },
-        {
-          "t": 1200,
-          "above": 231025,
-          "rate": 0.403763
-        },
-        {
-          "t": 1260,
-          "above": 223179,
-          "rate": 0.39005
-        },
-        {
-          "t": 1200,
-          "above": 231025,
-          "rate": 0.403763
-        }
-      ],
-      "chosen_seconds": 1200,
-      "training_rate_at_chosen": 0.403763,
-      "why_not_1260": "0.390050 falls below the 0.40 target",
-      "source": "the extract's own manifest.json threshold block"
-    },
-    "duplicate_identifiers": {
-      "source_rows": 1049636,
-      "source_distinct_incident_numbers": 1049612,
-      "repeated_identifiers": 24,
-      "repeated_by_split": {
-        "train": 11,
-        "eval": 7,
-        "holdout": 6
-      },
-      "with_differing_labels": 4,
-      "cross_split": 0,
-      "source": "aggregate queries against e687-fx2y plus the gate's recomputation over the rows"
-    }
-  },
+  "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
   "assets": {
     "meta.json": {
       "asset_name": "meta.json",
@@ -148,12 +28,257 @@
       "sha256": "a7f9c99c5d0c9465e28ef66eee9ffa9c7f15c53d094148567c2ff48c961241a7"
     }
   },
+  "baseline": {
+    "artifact": {
+      "positive_label": 1,
+      "positive_rate": {
+        "eval": 0.384576,
+        "holdout": 0.377755,
+        "train": 0.403763
+      },
+      "rows": {
+        "eval": 285665,
+        "holdout": 191791,
+        "train": 572180
+      },
+      "target": "late",
+      "threshold_seconds": 1200
+    },
+    "contract": {
+      "contract_ok": true,
+      "eval_auc_from_train_py": "0.7691",
+      "eval_auc_from_validate_py": "0.7691",
+      "train_py_exit": 0,
+      "validate_sh_exit": 0
+    },
+    "dependencies": {
+      "numpy": "2.5.3",
+      "pandas": "2.3.3",
+      "python": "3.13.15",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1"
+    },
+    "job": "austin-baseline-002",
+    "purpose": "one baseline through the runner's existing training and validation contract",
+    "runner_files": {
+      "bundled_sha256": {
+        "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+        "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+        "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
+      },
+      "expected_sha256": {
+        "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+        "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+        "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
+      },
+      "unmodified": true
+    },
+    "scope": "one baseline only. No agent or harness comparison was run, and none is implied - that is outside this publication milestone."
+  },
+  "baseline_command": "sh baseline/reproduce_baseline.sh ./task",
+  "construction_commit": "06d7002bc01933e4c094bbe84e4d9899572a893f",
+  "dataset": "austin-911-response",
+  "files": {
+    "meta.json": {
+      "bytes": 2121,
+      "sha256": "5dc8aed06c157a35955e7913748609cf6c42be2b2d144f405de41240dd9d45fb"
+    },
+    "private/holdout.csv": {
+      "bytes": 24075321,
+      "sha256": "738ff7ec245302ff2a8dcfb1be95dd622b6d8e7acaf8e9a025b1823a430cab7a"
+    },
+    "public/eval.csv": {
+      "bytes": 35801537,
+      "sha256": "241dee5eb84cfdd5e1101a3453d2af4dea9bdf9dfca549d83323584a6e442d7a"
+    },
+    "public/train.csv": {
+      "bytes": 71546966,
+      "sha256": "6fc37e034447b2e982d737f6d62d0da9a24584d89d25799d5d882ba584604434"
+    },
+    "quality.json": {
+      "bytes": 3434,
+      "sha256": "a7f9c99c5d0c9465e28ef66eee9ffa9c7f15c53d094148567c2ff48c961241a7"
+    }
+  },
+  "gate_command": "python3 code/qualify_dataset.py <dataset-dir>",
+  "gate_version": "1.3.0",
+  "get_dataset_command": "python3 get_dataset.py --dest ./task",
+  "layout": {
+    "task/meta.json": "meta.json",
+    "task/private/holdout.csv": "private/holdout.csv",
+    "task/public/eval.csv": "public/eval.csv",
+    "task/public/train.csv": "public/train.csv",
+    "task/quality.json": "quality.json"
+  },
+  "licenses": {
+    "code": {
+      "copyright": "Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard",
+      "file": "LICENSE-MIT.txt",
+      "spdx": "MIT",
+      "third_party": [
+        {
+          "bytes_unchanged": true,
+          "credits_preserved": "Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard",
+          "files": [
+            "baseline/train.py",
+            "baseline/validate.py",
+            "baseline/validate.sh"
+          ],
+          "permission": "confirmed by the copyright holder 2026-09-19",
+          "source": "earino/harness_benchmark, file set task_template/",
+          "terms": "MIT"
+        }
+      ]
+    },
+    "data_compilation": {
+      "file": "LICENSE-CC0-1.0.txt",
+      "scope": "Our contribution: row selection, the derived binary label, the temporal partition and the packaging. Does not cover or relicense the City of Austin's data.",
+      "spdx": "CC0-1.0"
+    },
+    "decided": "2026-09-19",
+    "policy_version": "2026-09-19",
+    "rules": [
+      "Code and documentation: MIT by default.",
+      "Our rights in a derived compilation: CC0-1.0 by default.",
+      "The source's own terms are preserved and never relicensed; the compilation dedication covers only our contribution.",
+      "Each dataset must use terms compatible with its sources. CC0 is NOT a blanket override of upstream terms: attribution, share-alike and non-commercial requirements from a source are carried through unchanged.",
+      "A source whose licence terms cannot be read is not published at all.",
+      "The chosen terms are declared per dataset in candidates/<id>/license.json and recorded in the release manifest, so the manifest cannot drift from the decision."
+    ],
+    "source_data": {
+      "attribution": "City of Austin, APD 911 Calls for Service 2023-2026, Austin Open Data, https://datahub.austintexas.gov/d/e687-fx2y, accessed 2026-09-18",
+      "citation": "City of Austin. APD 911 Calls for Service 2023-2026. Austin Open Data. Public Domain. Accessed 2026-09-18. Derived dataset: Austin 911 response time prediction dataset, version 2026.09, artifact e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328.",
+      "derived_labelling": "Labelled as derived; not an official City of Austin product.",
+      "evidence": [
+        "Socrata catalogue metadata for e687-fx2y reports license = 'Public Domain' (queried 2026-09-18)",
+        "GET https://datahub.austintexas.gov/api/views/e687-fx2y.json returns \"license\": {\"name\": \"Public Domain\"} (2026-09-18)"
+      ],
+      "spdx": "LicenseRef-Public-Domain",
+      "status": "Public Domain, preserved unchanged"
+    }
+  },
+  "measurements": {
+    "clock_offset": {
+      "command": "python3 code/measure_clock_offset.py 2000 --json",
+      "definition": "(first_unit_arrived_datetime - response_datetime) - response_time",
+      "exact_zero_rows": 55,
+      "max_seconds": 6041.0,
+      "mean_seconds": -53.526,
+      "median_seconds": -57.0,
+      "min_seconds": -468.0,
+      "negative_rows": 1890,
+      "p05_seconds": -206.0,
+      "p95_seconds": 0.0,
+      "positive_rows": 55,
+      "rows_measured": 2000,
+      "sampling": "deterministic: first N rows in catalogue :id order"
+    },
+    "duplicate_identifiers": {
+      "cross_split": 0,
+      "repeated_by_split": {
+        "eval": 7,
+        "holdout": 6,
+        "train": 11
+      },
+      "repeated_identifiers": 24,
+      "source": "aggregate queries against e687-fx2y plus the gate's recomputation over the rows",
+      "source_distinct_incident_numbers": 1049612,
+      "source_rows": 1049636,
+      "with_differing_labels": 4
+    },
+    "extraction_cost": {
+      "breakdown": {
+        "aggregate_detail": "1 row count + 10 threshold probes + 1 re-measure + 3 per-split counts",
+        "aggregate_queries": 15,
+        "page_requests": 54,
+        "page_size": 20000,
+        "pages_by_split": {
+          "eval": 15,
+          "holdout": 10,
+          "train": 29
+        }
+      },
+      "command": "python3 code/build.py --out /tmp/extract --built-at <recorded>",
+      "credential_required": false,
+      "http_requests_total": 69,
+      "machine": "2 vCPU / 2 GB worker",
+      "method": "aggregate queries counted by wrapping build.get_json; paging is arithmetic over measured per-split row counts and the page size",
+      "output_bytes_approx": 136000000,
+      "wall_clock_seconds": 353.7
+    },
+    "threshold_search": {
+      "chosen_seconds": 1200,
+      "probes": [
+        {
+          "above": 26590,
+          "rate": 0.046471,
+          "t": 10800
+        },
+        {
+          "above": 64869,
+          "rate": 0.113372,
+          "t": 5400
+        },
+        {
+          "above": 125867,
+          "rate": 0.219978,
+          "t": 2700
+        },
+        {
+          "above": 215808,
+          "rate": 0.377168,
+          "t": 1320
+        },
+        {
+          "above": 349894,
+          "rate": 0.61151,
+          "t": 660
+        },
+        {
+          "above": 270820,
+          "rate": 0.473313,
+          "t": 960
+        },
+        {
+          "above": 239627,
+          "rate": 0.418797,
+          "t": 1140
+        },
+        {
+          "above": 231025,
+          "rate": 0.403763,
+          "t": 1200
+        },
+        {
+          "above": 223179,
+          "rate": 0.39005,
+          "t": 1260
+        },
+        {
+          "above": 231025,
+          "rate": 0.403763,
+          "t": 1200
+        }
+      ],
+      "rule": "largest tested T whose training-window rate is at or above the 0.40 target",
+      "source": "the extract's own manifest.json threshold block",
+      "training_rate_at_chosen": 0.403763,
+      "why_not_1260": "0.390050 falls below the 0.40 target"
+    }
+  },
   "package_files": {
+    ".dataset-site/LICENSE-MIT.txt": "200f782f6b8bc23b926ea774cbacb4147826b3b2b59200917d8dc5ec68159535",
+    ".dataset-site/build.py": "1ab5792b1d5cf0ba0a08a240a103c9462963bcb56a15b3bf7ee112c65bcb7218",
+    ".dataset-site/config.json": "45f09e3c9653d353381b7acd2ba627a2029e416f17a5c0dec1bcb2fc448c25c2",
+    ".dataset-site/editions/austin-911-response/v2026.09/1.json": "a64d638784f768e49bca243b4911bad78f05091868eba8f8e57ab6b00f80c942",
+    ".dataset-site/owner.json": "908810d45e4bdd9946903d695002a5d214cceb7c4b678dbe0c0868f9f458d499",
+    ".dataset-site/records/austin-911-response/v2026.09.json": "a64d638784f768e49bca243b4911bad78f05091868eba8f8e57ab6b00f80c942",
+    ".github/workflows/dataset-site.yml": "3986e6e7dad806a9b41c9881e91166ce1e4890ac0053ad48a06dbc138bd0a27d",
     "DATA_DICTIONARY.md": "2b1ad7f2c375109e4edfb2accdc01d4d3a03daab80d958a08122810f099335e5",
     "LICENSE-CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "LICENSE-MIT.txt": "56b932ff064e5da113ae10175c8546325f64f26e1ece71683ffcbf8b2304fe1c",
     "LICENSE.md": "abd992fe5e1c6800c04d6159aa0e3624a5c42e1538aeef65769d16dcac3e25aa",
-    "README.md": "6c5cb13bbec709ead5426fec64b10ad4331293c8cdde6772e471213d4d51da31",
+    "README.md": "d9441d0bfb4941775b8a12b61639fb578de23d0426e81565b84370484a9454d3",
     "RELEASE_NOTES.md": "20f6ea518a6faced9af00f85cfa3bdf187d15dff2f17c45812b1d2979a88df23",
     "REPRODUCE.md": "bbe3d795a7096a4403390263252d4be67e16f58d390dfe1e54894db712a531e7",
     "SHA256SUMS": "a930ef2af04e1ed5d5982ce673cd51dd9834e258c12f3f4c8104a2ae7f442b48",
@@ -170,168 +295,50 @@
     "get_dataset.py": "47513c3c7aa2d15828c7ac592cac1bb568d3e5611952c79930117a9d544162ec",
     "measurements.json": "cb1d1de93a6a1c5913746dc1264c0a0fcedba349198b4ab16bbd4d39d39a9a03"
   },
-  "baseline_command": "sh baseline/reproduce_baseline.sh ./task",
-  "get_dataset_command": "python3 get_dataset.py --dest ./task",
+  "publication_note": "Prepared for human review. Nothing here has been published.",
+  "published": false,
+  "qualification": {
+    "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
+    "gate": "skills/dataset-qualification/scripts/qualify_dataset.py",
+    "gate_version": "1.3.0",
+    "note": "Two earlier runs failed and each failure was a defect worth fixing; see notes.md. austin-001 failed a conflated entity check, austin-002 failed an entity-key claim the source does not make. Neither failure was a data problem.",
+    "result": "PASSED - 33 checks, 0 failed, on the full 1,049,636-row artifact, on the worker"
+  },
+  "release_tag": "v2026.09",
+  "release_version": "2026.09",
+  "repository": "https://github.com/earino/austin-911-response",
+  "scope": "One baseline through the runner's training and validation contract. No agent or harness comparison was run and none is implied.",
   "source": {
-    "name": "Austin Open Data - APD 911 Calls for Service 2023-2026",
+    "accessed": "2026-09-18",
+    "api": "https://datahub.austintexas.gov/resource/e687-fx2y.json",
     "dataset_id": "e687-fx2y",
     "landing_page": "https://datahub.austintexas.gov/d/e687-fx2y",
-    "api": "https://datahub.austintexas.gov/resource/e687-fx2y.json",
-    "accessed": "2026-09-18",
     "licence": "Public Domain",
     "licence_evidence": [
       "Socrata catalog metadata for e687-fx2y reports license = 'Public Domain' (api.us.socrata.com catalog v1, queried 2026-09-18).",
       "Re-confirmed 2026-09-18 directly from GET https://datahub.austintexas.gov/api/views/e687-fx2y.json: \"license\": {\"name\": \"Public Domain\"}, view name 'APD 911 Calls for Service 2023-2026'."
-    ]
-  },
-  "layout": {
-    "task/meta.json": "meta.json",
-    "task/public/train.csv": "public/train.csv",
-    "task/public/eval.csv": "public/eval.csv",
-    "task/private/holdout.csv": "private/holdout.csv",
-    "task/quality.json": "quality.json"
-  },
-  "files": {
-    "public/train.csv": {
-      "bytes": 71546966,
-      "sha256": "6fc37e034447b2e982d737f6d62d0da9a24584d89d25799d5d882ba584604434"
-    },
-    "public/eval.csv": {
-      "bytes": 35801537,
-      "sha256": "241dee5eb84cfdd5e1101a3453d2af4dea9bdf9dfca549d83323584a6e442d7a"
-    },
-    "private/holdout.csv": {
-      "bytes": 24075321,
-      "sha256": "738ff7ec245302ff2a8dcfb1be95dd622b6d8e7acaf8e9a025b1823a430cab7a"
-    },
-    "meta.json": {
-      "bytes": 2121,
-      "sha256": "5dc8aed06c157a35955e7913748609cf6c42be2b2d144f405de41240dd9d45fb"
-    },
-    "quality.json": {
-      "bytes": 3434,
-      "sha256": "a7f9c99c5d0c9465e28ef66eee9ffa9c7f15c53d094148567c2ff48c961241a7"
-    }
+    ],
+    "name": "Austin Open Data - APD 911 Calls for Service 2023-2026"
   },
   "splits": {
-    "train": {
-      "rows": 572180,
-      "positives": 231025,
-      "positive_rate": 0.403763
-    },
     "eval": {
-      "rows": 285665,
+      "positive_rate": 0.384576,
       "positives": 109860,
-      "positive_rate": 0.384576
+      "rows": 285665
     },
     "holdout": {
-      "rows": 191791,
+      "positive_rate": 0.377755,
       "positives": 72450,
-      "positive_rate": 0.377755
+      "rows": 191791
+    },
+    "train": {
+      "positive_rate": 0.403763,
+      "positives": 231025,
+      "rows": 572180
     }
   },
-  "qualification": {
-    "gate": "skills/dataset-qualification/scripts/qualify_dataset.py",
-    "gate_version": "1.3.0",
-    "result": "PASSED - 33 checks, 0 failed, on the full 1,049,636-row artifact, on the worker",
-    "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
-    "note": "Two earlier runs failed and each failure was a defect worth fixing; see notes.md. austin-001 failed a conflated entity check, austin-002 failed an entity-key claim the source does not make. Neither failure was a data problem."
-  },
-  "baseline": {
-    "job": "austin-baseline-002",
-    "purpose": "one baseline through the runner's existing training and validation contract",
-    "contract": {
-      "train_py_exit": 0,
-      "validate_sh_exit": 0,
-      "contract_ok": true,
-      "eval_auc_from_train_py": "0.7691",
-      "eval_auc_from_validate_py": "0.7691"
-    },
-    "artifact": {
-      "target": "late",
-      "positive_label": 1,
-      "threshold_seconds": 1200,
-      "rows": {
-        "train": 572180,
-        "eval": 285665,
-        "holdout": 191791
-      },
-      "positive_rate": {
-        "train": 0.403763,
-        "eval": 0.384576,
-        "holdout": 0.377755
-      }
-    },
-    "runner_files": {
-      "bundled_sha256": {
-        "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
-        "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
-        "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
-      },
-      "expected_sha256": {
-        "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
-        "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
-        "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
-      },
-      "unmodified": true
-    },
-    "dependencies": {
-      "python": "3.13.15",
-      "pandas": "2.3.3",
-      "numpy": "2.5.3",
-      "xgboost": "3.4.1",
-      "scikit-learn": "1.9.1"
-    },
-    "scope": "one baseline only. No agent or harness comparison was run, and none is implied - that is outside this publication milestone."
-  },
-  "scope": "One baseline through the runner's training and validation contract. No agent or harness comparison was run and none is implied.",
-  "published": false,
-  "publication_note": "Prepared for human review. Nothing here has been published.",
-  "licenses": {
-    "policy_version": "2026-09-19",
-    "decided": "2026-09-19",
-    "code": {
-      "spdx": "MIT",
-      "file": "LICENSE-MIT.txt",
-      "copyright": "Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard",
-      "third_party": [
-        {
-          "files": [
-            "baseline/train.py",
-            "baseline/validate.py",
-            "baseline/validate.sh"
-          ],
-          "source": "earino/harness_benchmark, file set task_template/",
-          "terms": "MIT",
-          "permission": "confirmed by the copyright holder 2026-09-19",
-          "credits_preserved": "Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard",
-          "bytes_unchanged": true
-        }
-      ]
-    },
-    "data_compilation": {
-      "spdx": "CC0-1.0",
-      "file": "LICENSE-CC0-1.0.txt",
-      "scope": "Our contribution: row selection, the derived binary label, the temporal partition and the packaging. Does not cover or relicense the City of Austin's data."
-    },
-    "source_data": {
-      "spdx": "LicenseRef-Public-Domain",
-      "status": "Public Domain, preserved unchanged",
-      "evidence": [
-        "Socrata catalogue metadata for e687-fx2y reports license = 'Public Domain' (queried 2026-09-18)",
-        "GET https://datahub.austintexas.gov/api/views/e687-fx2y.json returns \"license\": {\"name\": \"Public Domain\"} (2026-09-18)"
-      ],
-      "attribution": "City of Austin, APD 911 Calls for Service 2023-2026, Austin Open Data, https://datahub.austintexas.gov/d/e687-fx2y, accessed 2026-09-18",
-      "citation": "City of Austin. APD 911 Calls for Service 2023-2026. Austin Open Data. Public Domain. Accessed 2026-09-18. Derived dataset: Austin 911 response time prediction dataset, version 2026.09, artifact e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328.",
-      "derived_labelling": "Labelled as derived; not an official City of Austin product."
-    },
-    "rules": [
-      "Code and documentation: MIT by default.",
-      "Our rights in a derived compilation: CC0-1.0 by default.",
-      "The source's own terms are preserved and never relicensed; the compilation dedication covers only our contribution.",
-      "Each dataset must use terms compatible with its sources. CC0 is NOT a blanket override of upstream terms: attribution, share-alike and non-commercial requirements from a source are carried through unchanged.",
-      "A source whose licence terms cannot be read is not published at all.",
-      "The chosen terms are declared per dataset in candidates/<id>/license.json and recorded in the release manifest, so the manifest cannot drift from the decision."
-    ]
-  }
+  "staging_release": 391742263,
+  "staging_release_tag": "job-austin-003",
+  "staging_repo": "earino/dataset-factory-staging",
+  "visibility": "private (publication requires explicit authorisation)"
 }

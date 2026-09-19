@@ -296,3 +296,11 @@ Open Data, Public Domain, accessed 2026-09-18.
 **Versioning and corrections.** Releases are versioned `YYYY.MM`. A corrected rebuild gets a new
 version and a changelog entry; previous versions and their hashes are kept rather than
 overwritten, so a published result always names the artifact version it used.
+
+<!-- dataset-factory:links -->
+**Dataset Factory · v2026.09**
+
+[Dataset website](https://earino.github.io/austin-911-response/versions/v2026.09/) · [GitHub release](https://github.com/earino/austin-911-response/releases/tag/v2026.09) · [Hugging Face](https://huggingface.co/datasets/earino/austin-911-response/tree/v2026.09) · [Catalogue](https://earino.github.io/dataset-factory-site/)
+
+Artifact: e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328
+<!-- /dataset-factory:links -->

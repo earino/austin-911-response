@@ -1,0 +1,59 @@
+name: Dataset website
+on:
+  push:
+    paths: ['.dataset-site/**', '.github/workflows/dataset-site.yml']
+  pull_request:
+    paths: ['.dataset-site/**', '.github/workflows/dataset-site.yml']
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Deploy the operator-approved commit'
+        type: boolean
+        default: false
+      commit:
+        description: 'Full approved commit SHA; deployment refuses another commit'
+        type: string
+        required: false
+permissions:
+  contents: read
+concurrency:
+  group: dataset-site-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Build review artifact
+        if: inputs.publish != true
+        run: python3 .dataset-site/build.py --out _site --preview
+      - name: Build approved site
+        if: inputs.publish == true
+        run: python3 .dataset-site/build.py --out _site
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: site-preview
+          path: _site
+          retention-days: 7
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        if: inputs.publish == true
+        with:
+          path: _site
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' && inputs.publish == true &&
+      github.sha == inputs.commit && github.ref_name == github.event.repository.default_branch
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy approved commit
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

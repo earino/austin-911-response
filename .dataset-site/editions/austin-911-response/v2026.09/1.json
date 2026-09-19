@@ -1,0 +1,105 @@
+{
+  "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
+  "assets": {
+    "eval.csv": {
+      "bytes": 35801537,
+      "download": "https://github.com/earino/austin-911-response/releases/download/v2026.09/eval.csv",
+      "hf_path": "data/eval.csv",
+      "sha256": "241dee5eb84cfdd5e1101a3453d2af4dea9bdf9dfca549d83323584a6e442d7a"
+    },
+    "holdout.csv": {
+      "bytes": 24075321,
+      "download": "https://github.com/earino/austin-911-response/releases/download/v2026.09/holdout.csv",
+      "hf_path": "data/holdout.csv",
+      "sha256": "738ff7ec245302ff2a8dcfb1be95dd622b6d8e7acaf8e9a025b1823a430cab7a"
+    },
+    "meta.json": {
+      "bytes": 2121,
+      "download": "https://github.com/earino/austin-911-response/releases/download/v2026.09/meta.json",
+      "hf_path": "meta.json",
+      "sha256": "5dc8aed06c157a35955e7913748609cf6c42be2b2d144f405de41240dd9d45fb"
+    },
+    "quality.json": {
+      "bytes": 3434,
+      "download": "https://github.com/earino/austin-911-response/releases/download/v2026.09/quality.json",
+      "hf_path": "quality.json",
+      "sha256": "a7f9c99c5d0c9465e28ef66eee9ffa9c7f15c53d094148567c2ff48c961241a7"
+    },
+    "train.csv": {
+      "bytes": 71546966,
+      "download": "https://github.com/earino/austin-911-response/releases/download/v2026.09/train.csv",
+      "hf_path": "data/train.csv",
+      "sha256": "6fc37e034447b2e982d737f6d62d0da9a24584d89d25799d5d882ba584604434"
+    }
+  },
+  "baseline": {
+    "metrics": {
+      "Evaluation ROC AUC": 0.7691
+    },
+    "scope": "one baseline only. No agent or harness comparison was run, and none is implied - that is outside this publication milestone."
+  },
+  "dataset": "austin-911-response",
+  "domain": "Public safety",
+  "github_repository": "earino/austin-911-response",
+  "hf_repository": "earino/austin-911-response",
+  "licenses": {
+    "attribution": "City of Austin, APD 911 Calls for Service 2023-2026, Austin Open Data, https://datahub.austintexas.gov/d/e687-fx2y, accessed 2026-09-18",
+    "citation": "City of Austin. APD 911 Calls for Service 2023-2026. Austin Open Data. Public Domain. Accessed 2026-09-18. Derived dataset: Austin 911 response time prediction dataset, version 2026.09, artifact e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328.",
+    "code": "MIT",
+    "compilation_scope": "Our contribution: row selection, the derived binary label, the temporal partition and the packaging. Does not cover or relicense the City of Austin's data.",
+    "data_compilation": "CC0-1.0",
+    "source_data": "LicenseRef-Public-Domain"
+  },
+  "limitations": [
+    "This is a derived research dataset, not an official City of Austin product or a recommendation about emergency response.",
+    "The source outcome clock and prediction timestamp differ. Read the documented clock-offset measurements before interpreting the target.",
+    "The holdout is downloadable. Keep its labels outside the evaluated agent's workspace during an evaluation."
+  ],
+  "post": {
+    "paragraphs": [
+      "This release turns City of Austin call records into a prediction task with temporal training, evaluation and holdout splits. The construction code, qualification checks and a reproducible baseline travel with the dataset.",
+      "The target uses the source's response_time field. The threshold was selected using the training period and then frozen. Prediction time and the outcome's clock are distinct: the source measures response time from the call being answered, while response_datetime records the opening of the call-taker's dispatch screen.",
+      "The recorded baseline demonstrates the runner's training and prediction contract on this artifact. It is not an agent or harness comparison."
+    ],
+    "title": "A prediction task from Austin's 911 calls"
+  },
+  "qualification": {
+    "gate_version": "1.3.0",
+    "result": "PASSED - 33 checks, 0 failed, on the full 1,049,636-row artifact, on the worker"
+  },
+  "record_sha256": "c890766d9d50f7c2e16a5ed02cd365930583a5157a0ab4c52b0e5c8b7da2138c",
+  "release_date": "2026-09-19",
+  "release_tag": "v2026.09",
+  "schema_version": 1,
+  "site_revision": 1,
+  "source": {
+    "name": "Austin Open Data - APD 911 Calls for Service 2023-2026",
+    "url": "https://datahub.austintexas.gov/d/e687-fx2y"
+  },
+  "splits": {
+    "eval": {
+      "positives": 109860,
+      "rows": 285665
+    },
+    "holdout": {
+      "positives": 72450,
+      "rows": 191791
+    },
+    "train": {
+      "positives": 231025,
+      "rows": 572180
+    }
+  },
+  "summary": "Predict late first-unit arrival using information available when the call-taker's dispatch screen opens.",
+  "task_type": "binary-classification",
+  "title": "Austin 911 response time",
+  "urls": {
+    "catalog": "https://earino.github.io/dataset-factory-site/",
+    "github": "https://github.com/earino/austin-911-response",
+    "github_release": "https://github.com/earino/austin-911-response/releases/tag/v2026.09",
+    "huggingface": "https://huggingface.co/datasets/earino/austin-911-response",
+    "huggingface_version": "https://huggingface.co/datasets/earino/austin-911-response/tree/v2026.09",
+    "version": "https://earino.github.io/austin-911-response/versions/v2026.09/",
+    "website": "https://earino.github.io/austin-911-response/"
+  }
+}
