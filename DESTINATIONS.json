@@ -1,0 +1,57 @@
+{
+  "release_tag": "v2026.09",
+  "destinations": {
+    "huggingface": {
+      "repo": "earino/austin-911-response",
+      "revision": "v2026.09",
+      "private": true,
+      "verified": true,
+      "verified_at": "2026-09-19T08:57:52+00:00",
+      "files_verified": [
+        "data/eval.csv",
+        "data/holdout.csv",
+        "data/train.csv",
+        "meta.json",
+        "quality.json"
+      ],
+      "missing": [],
+      "size_mismatch": [],
+      "loading_check": "run by the worker job and recorded in its report",
+      "license_metadata": "Terms declared 2026-09-19: MIT for code and documentation (including the three baseline files from earino/harness_benchmark, released with the copyright holder's permission, credits preserved); CC0-1.0 for our rights in the derived compilation; the source's Public Domain designation, attribution and citation preserved unchanged. Dataset assets unchanged - digests identical to the accepted artifact e4598317e406984f.",
+      "license_metadata_updated": "2026-09-19"
+    },
+    "github": {
+      "repo": "https://github.com/earino/austin-911-response",
+      "release_tag": "v2026.09",
+      "release_id": 391804787,
+      "private": true,
+      "verified": true,
+      "verified_at": "2026-09-18T22:30:00+00:00",
+      "files_verified": [
+        "private/holdout.csv",
+        "public/eval.csv",
+        "public/train.csv",
+        "meta.json",
+        "quality.json"
+      ],
+      "bytes": 131429379,
+      "evidence": {
+        "clone": "git clone --branch v2026.09 succeeded; all 17 package files matched the recorded hashes and the tag resolved",
+        "consumer": "job austin-consumer-002 in a fresh environment with no factory access: exit 0, all five asset digests matched on arrival, sha256sum -c OK, qualification PASSED, baseline reproduced at eval AUC 0.7691"
+      },
+      "note": "Private. Public visibility requires explicit human approval; the labelled holdout ships to both destinations when that happens.",
+      "license_metadata": "Terms declared 2026-09-19: MIT for code and documentation (including the three baseline files from earino/harness_benchmark, released with the copyright holder's permission, credits preserved); CC0-1.0 for our rights in the derived compilation; the source's Public Domain designation, attribution and citation preserved unchanged. Dataset assets unchanged - digests identical to the accepted artifact e4598317e406984f.",
+      "license_metadata_updated": "2026-09-19"
+    }
+  },
+  "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
+  "sync": "Deterministic release work from one manifest: per-file uploads verify digests and skip anything already matching, with bounded retries. Not a recurring model-driven comparison of two copies.",
+  "licensing": {
+    "policy": "config/licensing-policy.json",
+    "declaration": "candidates/austin-911-response/license.json",
+    "code_spdx": "MIT",
+    "compilation_spdx": "CC0-1.0",
+    "source_spdx": "LicenseRef-Public-Domain",
+    "rule": "CC0 is not a blanket override of upstream terms; each dataset uses terms compatible with its sources."
+  }
+}

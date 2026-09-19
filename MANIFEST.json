@@ -150,13 +150,15 @@
   },
   "package_files": {
     "DATA_DICTIONARY.md": "2b1ad7f2c375109e4edfb2accdc01d4d3a03daab80d958a08122810f099335e5",
-    "LICENSE.md": "89e281919d79e96baecab94752e9660b6b1c96cce67932565312d008b48b3ae6",
-    "README.md": "d011882596d149a003bd52711f95cea590b847e971ba0ef646529b52fe56e584",
-    "RELEASE_NOTES.md": "3f92eca7d225f5e05f52d1662878f7e38aff2b81ad5fe7abb5abd037228af82d",
+    "LICENSE-CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "LICENSE-MIT.txt": "56b932ff064e5da113ae10175c8546325f64f26e1ece71683ffcbf8b2304fe1c",
+    "LICENSE.md": "abd992fe5e1c6800c04d6159aa0e3624a5c42e1538aeef65769d16dcac3e25aa",
+    "README.md": "6c5cb13bbec709ead5426fec64b10ad4331293c8cdde6772e471213d4d51da31",
+    "RELEASE_NOTES.md": "20f6ea518a6faced9af00f85cfa3bdf187d15dff2f17c45812b1d2979a88df23",
     "REPRODUCE.md": "bbe3d795a7096a4403390263252d4be67e16f58d390dfe1e54894db712a531e7",
     "SHA256SUMS": "a930ef2af04e1ed5d5982ce673cd51dd9834e258c12f3f4c8104a2ae7f442b48",
     "VERIFICATION.md": "4c483d112f000cde7180d5941ca30a5c8815f7f42c923d0ea5c3eba5950a87da",
-    "baseline/README.md": "365bd346eafc8942e4220224260f4fe2f28a8b930ba0d7a75f8622780e657167",
+    "baseline/README.md": "4479456794e98e63cac4b66cb002f53546c331b577a8bc4504db3b996947634a",
     "baseline/reproduce_baseline.sh": "9a5e5df2be47454fd3f4f68befc0ad163e5901662a0eb567c1b4648e3eb0aa9c",
     "baseline/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
     "baseline/validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
@@ -284,5 +286,52 @@
   },
   "scope": "One baseline through the runner's training and validation contract. No agent or harness comparison was run and none is implied.",
   "published": false,
-  "publication_note": "Prepared for human review. Nothing here has been published."
+  "publication_note": "Prepared for human review. Nothing here has been published.",
+  "licenses": {
+    "policy_version": "2026-09-19",
+    "decided": "2026-09-19",
+    "code": {
+      "spdx": "MIT",
+      "file": "LICENSE-MIT.txt",
+      "copyright": "Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard",
+      "third_party": [
+        {
+          "files": [
+            "baseline/train.py",
+            "baseline/validate.py",
+            "baseline/validate.sh"
+          ],
+          "source": "earino/harness_benchmark, file set task_template/",
+          "terms": "MIT",
+          "permission": "confirmed by the copyright holder 2026-09-19",
+          "credits_preserved": "Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard",
+          "bytes_unchanged": true
+        }
+      ]
+    },
+    "data_compilation": {
+      "spdx": "CC0-1.0",
+      "file": "LICENSE-CC0-1.0.txt",
+      "scope": "Our contribution: row selection, the derived binary label, the temporal partition and the packaging. Does not cover or relicense the City of Austin's data."
+    },
+    "source_data": {
+      "spdx": "LicenseRef-Public-Domain",
+      "status": "Public Domain, preserved unchanged",
+      "evidence": [
+        "Socrata catalogue metadata for e687-fx2y reports license = 'Public Domain' (queried 2026-09-18)",
+        "GET https://datahub.austintexas.gov/api/views/e687-fx2y.json returns \"license\": {\"name\": \"Public Domain\"} (2026-09-18)"
+      ],
+      "attribution": "City of Austin, APD 911 Calls for Service 2023-2026, Austin Open Data, https://datahub.austintexas.gov/d/e687-fx2y, accessed 2026-09-18",
+      "citation": "City of Austin. APD 911 Calls for Service 2023-2026. Austin Open Data. Public Domain. Accessed 2026-09-18. Derived dataset: Austin 911 response time prediction dataset, version 2026.09, artifact e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328.",
+      "derived_labelling": "Labelled as derived; not an official City of Austin product."
+    },
+    "rules": [
+      "Code and documentation: MIT by default.",
+      "Our rights in a derived compilation: CC0-1.0 by default.",
+      "The source's own terms are preserved and never relicensed; the compilation dedication covers only our contribution.",
+      "Each dataset must use terms compatible with its sources. CC0 is NOT a blanket override of upstream terms: attribution, share-alike and non-commercial requirements from a source are carried through unchanged.",
+      "A source whose licence terms cannot be read is not published at all.",
+      "The chosen terms are declared per dataset in candidates/<id>/license.json and recorded in the release manifest, so the manifest cannot drift from the decision."
+    ]
+  }
 }

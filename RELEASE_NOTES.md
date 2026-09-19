@@ -79,12 +79,21 @@ milestone, and no comparison should be inferred.
   deliberately not tuned to balance classes. The threshold search's ten probes are recorded in
   `README.md`.
 
-## Two open decisions for the maintainer
+## Licensing, and the one decision still open
 
-1. **A licence for the published code** (`code/`) and for the three benchmark runner files in
-   `baseline/`. The benchmark project carries no licence, so including its files here is the
-   maintainer's call to confirm before this repository becomes public.
-2. **Public visibility itself** — nothing is public yet, by instruction.
+**Resolved 2026-09-19.** The code and documentation in this repository — including the three
+baseline runner files copied verbatim from `earino/harness_benchmark` — are released under **MIT**
+(`LICENSE-MIT.txt`). The copyright holder of that project confirmed permission for the copies,
+with contributor credits preserved: Copyright (c) 2026 E. Arino de la Rubia (earino), with
+contributors Claude and Szilard.
+
+**Our rights in the derived compilation** are dedicated under **CC0-1.0**
+(`LICENSE-CC0-1.0.txt`). The dedication covers our contribution — row selection, the derived
+label, the temporal partition and the packaging — and does **not** cover or relicense the City of
+Austin's data, which keeps its own **Public Domain** designation, attribution and suggested
+citation unchanged.
+
+**Still open: public visibility.** Nothing is public yet, on either platform, by instruction.
 
 ## Citation
 

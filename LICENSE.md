@@ -1,9 +1,40 @@
 # Licence and attribution
 
-## The data
+Two grants with two scopes. They are kept apart on purpose: the code here is ours to license, and
+the city's data is not ours to license at all.
 
-**Public Domain.** The source catalogue entry for `e687-fx2y` reports the licence as
-`Public Domain`:
+## 1. Our code and documentation - MIT
+
+Covered by `LICENSE-MIT.txt`: the construction, qualification and measurement scripts
+(`code/*.py`), the baseline runner files (`baseline/*`), `get_dataset.py`, the dataset card and
+data dictionary, this notice, and the reproduction and verification documents.
+
+Copyright (c) 2026 E. Arino de la Rubia (earino), with contributors Claude and Szilard.
+
+**The three baseline runner files.** `baseline/train.py`, `baseline/validate.py` and
+`baseline/validate.sh` are copied **verbatim** from `earino/harness_benchmark`, file set
+`task_template/`. That project is the copyright holder's own work, developed with Claude and
+Szilard, and the holder has confirmed permission to release these copies under MIT. Contributor
+credits are preserved above and in `baseline/README.md`. Their bytes are unchanged by this
+licence: their hashes in `MANIFEST.json` are the same hashes the recorded baseline run verified
+before running them, so the licence grant does not disturb the reproducible artifact.
+
+`harness_benchmark` itself remains a private, read-only checkout for this work; this permission
+covers the distributed copies only, and needed no edit to that project.
+
+## 2. Our rights in the derived dataset - CC0-1.0
+
+Covered by `LICENSE-CC0-1.0.txt`: **our contribution to the compilation** - the row selection, the
+derived binary label, the temporal partition, and the packaging of the result.
+
+**Scope, stated plainly: we dedicate our contribution; we do not claim ownership of the City of
+Austin's data, and we do not relicense it.** The source data stays under its own terms (below),
+and this dedication cannot and does not alter them. A downstream user receives our contribution
+under CC0-1.0 and the city's data under its Public Domain designation, unchanged.
+
+## 3. The source data - Public Domain, preserved
+
+The source catalogue entry for `e687-fx2y` reports the licence as `Public Domain`:
 
 - Socrata catalogue metadata for `e687-fx2y`, queried 2026-09-18.
 - Re-confirmed 2026-09-18 from `GET https://datahub.austintexas.gov/api/views/e687-fx2y.json`,
@@ -23,7 +54,10 @@ https://datahub.austintexas.gov/d/e687-fx2y, accessed 2026-09-18. Public Domain.
 > Accessed 2026-09-18. Derived dataset: Austin 911 response time prediction dataset, version
 > 2026.09, artifact `e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328`.
 
-## The holdout
+This dataset is derived from the City of Austin's open data and is labelled as derived. It is not
+an official City of Austin product, and nothing here should be presented as one.
+
+## 4. The holdout
 
 The labelled holdout (`holdout.csv`) is **included in this repository's release assets and is
 intended to become publicly downloadable** when this repository is made public. That decision is
@@ -31,32 +65,19 @@ made. It must still be kept out of an evaluated agent's workspace during a bench
 labelled, so exposing it to an agent being scored would defeat the evaluation. See
 `DATA_DICTIONARY.md`.
 
-## The construction code in this repository
+## 5. What this notice does not cover
 
-`code/build.py`, `code/qualify_dataset.py`, `code/materialize.py` and `code/measure_clock_offset.py`
-are published here so the dataset is reproducible without the private factory repository.
+- The city's data, which remains under its own Public Domain designation.
+- Third-party projects referenced but not distributed here; their own terms apply to them.
+- Any trademark, name or logo of the City of Austin, or any implication of endorsement.
+- Files under other terms, if a future version of this dataset adds any; they will be listed here.
 
-**Their licence has not been chosen yet.** The data's Public Domain status says nothing about the
-code that derives it, so this is left as an explicit decision rather than assumed:
+## 6. Policy for future datasets in this series
 
-- [ ] MIT
-- [ ] Apache-2.0
-- [ ] CC0
-- [ ] No licence published (reproduction instructions only, all rights reserved)
+Terms are chosen to be **compatible with each source**, and the same split applies: our code under
+a permissive software licence, our contribution to the compilation under terms the source permits.
 
-Until one is chosen, treat these files as **all rights reserved**: you may read and run them to
-verify this dataset, and no broader grant is implied.
-
-## The baseline runner files
-
-`baseline/train.py`, `baseline/validate.py` and `baseline/validate.sh` are copied **verbatim**
-from `earino/harness_benchmark`, a private repository that carries **no licence file**. They are
-included so the recorded baseline is reproducible from this repository alone.
-
-Because that project has no licence, including these three files here is the maintainer's
-decision to make and is recorded as such rather than presented as an established right. If this
-repository is made public, that decision should be confirmed — either by choosing a licence for
-the benchmark project or by removing the files and documenting the baseline as reproducible only
-with access. `baseline/README.md` records their provenance and hashes.
-
-Nothing in this repository is relicensed by the others' terms.
+**CC0 is not a blanket override of upstream terms.** A source that requires attribution, share-alike
+or non-commercial use gets those terms, and a source whose licence cannot be read is not published
+at all. Before any release, `dataset-discovery` must have closed the licence contract for every
+source with the terms actually read, and the chosen terms are recorded in the release manifest.

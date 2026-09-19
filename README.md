@@ -88,8 +88,10 @@ data — it is one physical cut, chosen once and frozen.
 | Owner | City of Austin (Austin Police Department) |
 | Access | anonymous Socrata API, no key, offset-paginated; verified live 2026-09-18 |
 | Accessed | 2026-09-18 |
-| **Data licence** | **Public Domain** |
-| Construction code | see `LICENSE.md` — still an open decision, stated there rather than assumed |
+| **Data licence (source)** | **Public Domain** — unchanged, and preserved as such |
+| **Our rights in the derived compilation** | **CC0-1.0** (`LICENSE-CC0-1.0.txt`) — we dedicate our contribution; we do not claim ownership of the city's data |
+| **Code and documentation** | **MIT** (`LICENSE-MIT.txt`), including the three baseline runner files from `earino/harness_benchmark`, released here with the copyright holder's permission |
+| Full notice | `LICENSE.md` |
 
 **Licence evidence, quoted from the source rather than asserted:**
 
@@ -100,7 +102,13 @@ data — it is one physical cut, chosen once and frozen.
   2023-2026*.
 
 Redistribution of the source data is therefore permitted. Attribution to the City of Austin is
-given here and in `LICENSE.md` regardless.
+given here and in `LICENSE.md` regardless, together with the suggested citation.
+
+**What the CC0 dedication covers, and what it does not.** It covers our contribution — row
+selection, the derived label, the temporal partition and the packaging. It does **not** cover the
+city's data, which keeps its own Public Domain designation, and it does not relicense it. This
+dataset is derived from the City of Austin's open data and is labelled as derived; it is not an
+official City of Austin product.
 
 **Transformations applied.** Row selection (the catalogue's coverage within the split windows,
 minus unlabelled rows), a derived binary label, and a temporal partition into three splits. No
