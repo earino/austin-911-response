@@ -121,8 +121,8 @@ def navigation(record):
     """The get-it bar: the three canonical destinations for this release."""
     u = record["urls"]
     cells = "".join("<td>" + link(u[key], title) + "</td>" for key, title in (
-        ("github_release", "&#128194; GitHub release"), ("huggingface_version", "&#129302; Hugging Face"),
-        ("catalog", "&#128218; All datasets")))
+        ("github_release", "GitHub release"), ("huggingface_version", "Hugging Face"),
+        ("catalog", "All datasets")))
     return '<div class="tscroll"><table class="getbar" aria-label="Dataset destinations"><tr>' + cells + "</tr></table></div>"
 
 
@@ -231,11 +231,16 @@ def render(config, records, preview=False, editions=()):
         posts = []
         for r in records:
             url = config["catalog_url"] + 'releases/' + r["dataset"] + '/' + r["release_tag"] + '/'
-            posts.append(f'<li><img src="{gif_uri("bullet")}" width="10" height="10" alt=""> {esc(r["release_date"])} &#8212; {link(url,r["post"]["title"])}</li>')
-            body = f'<h1>{esc(r["post"]["title"])}</h1>'
-            body += '<p><img src="' + gif_uri("donebadge") + '" width="96" height="22" alt="released and complete"> ' + esc(r["summary"]) + '</p>'
+            entry = ('<div class="logentry"><p class="logdate">' + esc(r["release_date"]) + '</p>'
+                     '<h3>' + esc(r["post"]["title"]) + '</h3>'
+                     + ''.join('<p>' + esc(p) + '</p>' for p in r["post"]["paragraphs"])
+                     + '<p class="loglinks">' + link(url, "permanent link") + ' | '
+                     + link(r["urls"]["version"], "open the dataset page") + '</p></div>')
+            posts.append(entry)
+            body = f'<div class="eyebrow">Release notes · {esc(r["release_date"])} · announcement</div>'
+            body += f'<h1>{esc(r["post"]["title"])}</h1>'
             body += ''.join('<p>' + esc(p) + '</p>' for p in r["post"]["paragraphs"])
-            body += navigation(r) + '<h2>Explore</h2>' + link(r["urls"]["version"], 'Open the dataset page')
+            body += '<p>' + link(r["urls"]["version"], '→ Open the dataset page for numbers, files and checksums') + '</p>'
             files[f'releases/{r["dataset"]}/{r["release_tag"]}/index.html'] = document(r["post"]["title"], body, config, preview)
         intro = f'''<h1><img src="{gif_uri("globe")}" width="36" height="36" alt="spinning globe"> The Dataset Factory</h1>
 <p class="intro">{esc(config["description"])}</p>
@@ -258,7 +263,7 @@ def render(config, records, preview=False, editions=()):
 <p>Who is it for? Teams that evaluate coding agents and prediction models. Anyone who needs honest, reproducible numbers.</p>
 <h2><img src="{gif_uri("flame")}" width="16" height="24" alt=""> Datasets <img src="{gif_uri("flame")}" width="16" height="24" alt=""></h2>
 <div class="tscroll"><table><thead><tr><th>Dataset</th><th>Field</th><th>Rows</th><th>Released</th><th>What it asks</th></tr></thead><tbody>{''.join(card_rows)}</tbody></table></div>
-<h2><img src="{gif_uri("flame")}" width="16" height="24" alt=""> Release archive <img src="{gif_uri("flame")}" width="16" height="24" alt=""></h2><ul class="retro-list">{''.join(posts)}</ul>'''
+<h2><img src="{gif_uri("flame")}" width="16" height="24" alt=""> The site log <img src="{gif_uri("flame")}" width="16" height="24" alt=""></h2><p class="note">Every release announcement, newest first. Permanent links never change.</p>{''.join(posts)}'''
         files["index.html"] = document(config["title"], intro, config, preview)
         files["catalog.json"] = canonical({"schema_version": 1, "releases": records})
     files["site-build.json"] = canonical({"renderer_version": VERSION, "preview": preview,
