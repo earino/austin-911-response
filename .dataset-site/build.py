@@ -16,6 +16,7 @@ GIF_B64 = {
     "flame": "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",
     "newbadge": "R0lGODlhNAAaAIEAAAAAAP///wD/AP//ACH/C05FVFNDQVBFMi4wAwEAAAAh+QQADAAAACwAAAAANAAaAAAI3AABCBxIsKDBggIOKlzIsCFBAQkhOpxI8WDChxUzTrwIYMBAjhpDfuQ4oORIkSJJllzpUSBIlA0lCmRJ8yNMhypp6nT58qbNmTqDtgTQE6bMjkKFnvSZMECAkk8HOJ0aVWrUqy5vXnQKtSvLq1eh/tQo06rXqmfDSjVJtOhClU/jel0pV23VsRsvrpVrlevev155phRYd25XsCzxhmza0S9aqIjZEvVJNABhsFPnciV8lHLOpCsVU24LFPRQt6M/1xQ8+u3AoKJbGzwamrVsnK9j33aNcXdGiZ1FBgQAIfkEAQwAAwAsCAAAACUAGgCBAAAA/wD//wAAAAAACM0ABwgcSLDgwAAGEypcSDAAQocMIzJE2FCixYoCBRy8KBFiRgEaBXrkaJDiAJAoQW4kedBkypcrSbp8STPkyI4Da+qMuXCkzp8tew4AAABkUQFEkx5FerSpyIQUiRqdmrJpU6M8PTKlupTrVaQqB0CcWbQsVZRmvy7dqDWt0aRT3VIVaVKsQLldwVpNyXMjgJNSwb4MHDikXYUB/g61Clfw1rs3Eef8CfPpRa2Uwx6WOblmUJaWT9LsC9qn5sigYxqum7pkQdatSz6EzTAgACH5BAEMAAQALAgAAAAlABoAgQAAAP///wD/////AAjNAAkIHEiw4EABBhMqXEhQAEKHDCMyRNhQosWKAgccvCgRYsYBGgV65GiQIgGQKEFuJHnQZMqXK0m6fEkz5MiOA2vqjLlwpM6fLXsSCBAAZNEBRJMeRXq0qciEFIkanZqyaVOjPD0ypbqU61WkKglAnFm0LFWUZr8u3ag1rdGkU91SFWlSrEC5XcFaTclzY4CTUsG+DBw4pF2FAv4OtQpX8Na7NxHn/Anz6UWtlMMeljm5ZlCWlk/S7Avap+bIoGMarpu6ZEHWrUs+hM0wIAAh+QQBDAADACwIAAAAJQAaAIEAAAD//wD/AAAAAAAIzQAHCBxIsODAAAYTKlxIMABChwwjMkTYUKLFigIFHLwoEWJGARoFeuRokOIAkChBbiR50GTKlytJunxJM+TIjgNr6oy5cKTOny17DgAAAGRRAUSTHkV6tKnIhBSJGp2asmlTozw9MqW6lOtVpCoHQJxZtCxVlGa/Lt2oNa3RpFPdUhVpUqxAuV3BWk3JcyOAk1LBvgwcOKRdhQH+DrUKV/DWuzcR5/wJ8+lFrZTDHpY5uWZQlpZP0uwL2qfmyKBjGq6bumRB1q1LPoTNMCAAIfkEAQwABAAsCAAAACUAGgCBAAAA//////8A/wAACM0ACQgcSLDgwAEGEypcSHAAQocMIzJE2FCixYoCBRy8KBFiRgEaBXrkaJAiAZAoQW4kedBkypcrSbp8STPkyI4Da+qMuXCkzp8texIIEABkUQFEkx5FerSpyIQUiRqdmrJpU6M8PTKlupTrVaQqCUCcWbQsVZRmvy7dqDWt0aRT3VIVaVKsQLldwVpNyXNjgJNSwb4MHDikXYUD/g61Clfw1rs3Eef8CfPpRa2Uwx6WOblmUJaWT9LsC9qn5sigYxqum7pkQdatSz6EzTAgACH5BAEMAAMALAgAAAAlABoAgQAAAAD/AP8AAAAAAAjNAAcIHEiw4MAABhMqXEgwAEKHDCMyRNhQosWKAgUcvCgRYkYBGgV65GiQ4gCQKEFuJHnQZMqXK0m6fEkz5MiOA2vqjLlwpM6fLXsOAAAAZFEBRJMeRXq0qciEFIkanZqyaVOjPD0ypbqU61WkKgdAnFm0LFWUZr8u3ag1rdGkU91SFWlSrEC5XcFaTclzI4CTUsG+DBw4pF2FAf4OtQpX8Na7NxHn/Anz6UWtlMMeljm5ZlCWlk/S7Avap+bIoGMarpu6ZEHWrUs+hM0wIAA7",
     "donebadge": "R0lGODlhYAAWAIEAAP//////AACAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQARgAAACwAAAAAYAAWAAAI/wADCBxIsKDBgwgTKlzIsKFBARAjSpxIsaLFixgzatwYUSDHjyBDiuTocaTJkygzlkzJsqXJlRsBuJzJEmZGADhp6hxpE2POiDhlQgw69KfQiUQlJi0KVGjQo0eLEn0qE0AAjktzaq1aVUBXilCBimVKNqxXpBWhXtX4dOzZsF2jDlU6l65XqE7HypVb1+tan1rdfn271C5au3HPKla8Ny3Qv27LCl4ctW3ky3kT3/25WGrlx0g5JzX7dvLgznkRl05tuK9hq2C3kt56tzbjzpQnzzXqujdfypCbFq4sWrTU0JyP663Ll+pm40ODe95JHWVP5dWzg7zeW7t3jNy/ixPfGH68eYvlz6vv6LC9+/fw3QcEACH5BAEjAAQALBoAAgAFABEAgf///wD/AP//AACAAAgeAAMQGEhAIMGCBw0OVIgwoUOCDBk2XPiQYsWJBQMCACH5BAEjAAMALBoAAgAFABEAgf//////AACAAAAAAAgfAAUMGDhAIMGCBw0OVIjwIICEEAkybLjQYUSJFwsGBAA7",
+    "tape": "R0lGODlhMAAMAIEAAAAAAP//AAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQADAAAACwAAAAAMAAMAAAIUQABCBxIUGCAgwgDFFy4MCFChhABODwYEeJEhRULXszYcCJHghs/DgwpkmRJjyIlokxpkmNLlys/vsw4M2JNmzFhOkxpMCdNnz93sgRa8SbDgAAh+QQBDAACACwBAAAALQAMAIEAAAD//wAAAAAAAAAIbwAFCBxIUACAgwQDKCzIcOBBAAkXNhT4MGKAiQwrDlR4EaNGgRwxFvwoIKRHhBsliqSIEqTKhiRNrjTYsuTLjDVlrox5c2TOnhN5dgz6c+jOoiKFzmQJMaVRnE1dPj0Z1eZUgkqXZiVaVWdSpCIDAgAh+QQBDAACACwAAAAAMAAMAIEAAAD//wAAAAAAAAAIcQADCBhIsGBBAAgLBlhosCFBhAAUCnTYEKLEiRQPJiS4EGNGARY5Mvz4cOPAjiQHhjw5MuVKAShdmoTZkuTLmDZn4swZUaTHjDdrfgz6kyLRlCp1CjWqtCjTniydVmyKFCRVmVBpSp2adSfQq1gvfgwIACH5BAEMAAIALAAAAAAwAAwAgQAAAP//AAAAAAAAAAhvAAUEGCigoMGDBwEoPDgwAMKHBhUCMNgQIkSJDAlaRIiRosONCRd6/AiyYMeCGksKOCkwZUmWLkHCjLlxJkmZIlHStGhT5cqcLW/inDjSZ0+jQCuqPLo06c6HTF86Fcpzqs+fRHVSvWgVadagEAMCADs=",
     "starfield": "R0lGODlhQABAAIIAAAAAAP////8A/wD/////AAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQAFAAAACwAAAAAQABAAAAIfgABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqvQoQMDKlzAjEohJs6bNgQRmTtR5s6dPlQF+Ch1KtKjRo0iTKn3Ic+lGAi2dSp1KtWrIAVazat3KtatGl17Dih1LNmvUsmjTql3Ltu3NgAAh+QQBFAAEACwGAAoAOgAxAIEAAAD/////AP///wAIagAJCBxIIADBgwgTKlzIsKHDhxAjSpxIsaLFixgVAgCQsaPHjyAdciQgIKTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJM+bGnkCDCh1KFOHIokiTKl3KNOfRplCjSp1K1ejTqlizshzAMiAAIfkEARQABAAsBgAKADoALQCBAAAA/wD/AP////8ACG4ACQgcSAAAwYMIEypcyLChw4cQI0qcSLGixYsYFQYIkLGjx48gHQ4QaDCkyZMoU14EUNJhS5UwY8qcWZCmzZs4c+rcybOnz59AIb4MChLARqJIkypdytShgKZQo0qdSpUpx6pYs2rdyhXi0aUBAQAh+QQBFAAEACwGAAoAOgAxAIEAAAD/////AP///wAIcAAJCBxIIADBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsSNGAAIFeBxJsqRJjAMGQFR5sqXLlzAHGoxJs6bNmzhz6tzJs6fPhyx/jgwqtKjRo0iTNgSptKnTp1CjSp1KtarVq1gFAmCatatXmFxNBgQAIfkEARQABQAsBgAOADoALQCCAAAA/////wD/AP////8AAAAAAAAAAAAACGkACwgcSLCgwYMDAQBAyLChw4cQI0qcSPEhgYoYM2rcyLGjx4QLP4ocSbKkyY0hT6pcybKly5cwY8qcSbNmzJQ2VSrEmbOnz59Ag74cILSo0aNIkyodyXOp06dQo0pdKUDA1KtYjV5cGRAAIfkEARQABQAsBwAKADkAMQCCAAAA/////wD/AP////8AAAAAAAAAAAAACGwACwgcCGCgwYMIEypcyLChw4cQI0qcSLGixYsYCwgQkLGjx48gHxYMSbKkyZMUCRAQibKly5cwCwSISbOmzZs4c+rcybOnz4Mrf4YksFGo0aNIkypdyrSp06dQl3KMSrWq1atYs2rdunMkyoAAIfkEARQABAAsBgAKADoAMQCBAAAA/////wD///8ACGoACQgcSCAAwYMIEypcyLChw4cQI0qcSLGixYsYFQIAkLGjx48gHXIkICCkyZMoU6o8OGCly5cwY8qcSbOmzZs4c+rcybOnz59AgwodSrTmyKJIkypdynTn0aZQo0qdShXhxqpYs8psuTIgACH5BAEUAAUALAYADgA6ACkAggAAAP////8A/wD/////AAAAAAAAAAAAAAhmAAsIHEiwoMGDAwUIQMiwocOHECNKnEjxIYGKGDNq3Mixo8eBAABEFPmxpMmTKFMeJKmypcuXMGPKnEmzps2bOGmyzNky5E6eQIMKHUpU5oCiSJMqXcq0qcmFTqNKnUq1qkyFSwMCADs=",
     "counter": "R0lGODlhTQAPAIEAAAAAAP8A/4CAgB4eHiH/C05FVFNDQVBFMi4wAwEAAAAsAAAAAE0ADwAACPUAAQgcSLCgwYMIEypcyFCAw4cQI0qcSLGixYsWAQgYwLFjR4ceQ4IM+XEjSY4jT6YkuTKkxpMoTaqUyZKmSJseW+bE2fElxwBAS3YEGkCox6IxhyJN+nPpgJFEdw4gGpSjz6BVoRbNSrPqU5NIl0KdKnWpWJtLrw5lapYp2bMh4a41OvfrUY9qf7Kdm3IrXb1uydL1arfugLyCxwJWLBdwYKctGzs9DJZv5cUbqXI1XNix3bZuJ1/dilTr1NJojU7uLDgp6MKrfZ6W7DWyUM1/IYMlrBgvz8A3YbIODlPnX5e/h0stntw48OUnNWKcTr269YgBAQA7",
     "email": "R0lGODlhHAAQAIEAAAAAAAD/AP//AAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQADAAAACwAAAAAHAAQAAAIaQABCBxIsKDBgwgTKhwooKHDhxAjNizocCHBABgnEhQgUGPCjBwDcNy4ceRBkRgDAFBJkqLJgSgFqmTJEKHGhjNlrqSoUGNOljQ7WtSJcaVInkN3tqyZ1GjRlwCgNo3qUqLViFOzakUYEAAh+QQBDAADACwCAAIAGQAMAIEAAAAA/wD//wAAAAAIZgABABhAsKDBgwgFCBA4QCHChwwDBFA4cCEAhw8HCJRIcWJFggIxHmQoYEAAggE+FgxZcmXFlAVhtjTIkiXKgTcbZqx5EKbMjDRBngTAUSVQkCZXNjR6VCNOiUt1NoW4FOfUhwoDAgAh+QQBDAADACwEAAIAGAAMAIEAAAAA/wD//wAAAAAIYAABDBhIsKDBgwMECEyIEOHCAAkBCBggcGJDigMgKgyg0CJGjwYBcBwYQKTEkAwLihQA0WRJkAQrfizZkubJhjJdiqT48qLKkhkFcrzpc+DOmB2LqiT4kqjSkAqfXhQQEAAh+QQBDAADACwEAAIAGAAMAIEAAAAA/wD//wAAAAAIXgAFDBhIsKDBgwMACEyIEGGAgQIVAhgQseHAhxEDCJBIsKJDAQ8TBuBY0CNBjSMHjBy5EWFFgSsnxmzZsGLMlCwnWjwJ4GFPiiR3XtQJMahQlQQl0jx6cONCpggBBAQAIfkEAQwAAwAsAgACABkADACBAAAAAP8A//8AAAAACGgABQgYQLCgwYMIAQAQOEAhwocBAgwQqHDgQgEOHw6ISDEAxoUNCVIEAHGgRJINLRocadBjQwASCYJEufKjwAAoYRacqXFkzJ0nVWosGBPnRpshhxJNOjElU6UbY84UChWhRYZVNSoMCAAh+QQBDAADACwAAAIAGQAMAIEAAAAA/wD//wAAAAAIaAAFCBhAsKDBgwgBABA4QCHChwECDBCocOBCAQ4fDohIMQDGhQ0JUgQAcaBEkg0tGhxp0GNDABIJgkS58qPAAChhFpypcWTMnSdVaiwYE+dGmyGHEk06MSVTpRtjzhQKFaFFhlU1KgwIACH5BAEMAAMALAAAAgAXAAwAgQAAAAD/AP//AAAAAAhZAAcIHEiwoMEBAAQmPGgwgEABCBNCXMjQ4cQAAgBQnFhRgEOEATQW5EgQY8gBIUNSJMgRYsqEL1eORIgSwMuaMivaBDkgY06dLEUybDgQgM+hSHv+TEoQQEAAIfkEAQwAAwAsAAACABcADACBAAAAAP8A//8AAAAACFkABwgcSLCgwQECBCY8aBCAwAAIEzpcyNAhRAEAAgigOLGixocZKQrsSDAkxIwhD3acGCDjAJQfKyJ82bImTZEMaVq0uDFnQZcDAfT0WXJgy6FEVeJMWlBAQAA7",
@@ -48,6 +49,7 @@ def document(title, body, config, preview=False):
     notice = ('<div class="blink previewline">&#9888; REVIEW BUILD &#183; NOT PUBLISHED '
               '&#183; DO NOT LINK &#9888;</div>') if preview else ""
     star, globe, flame = gif_uri("starfield"), gif_uri("globe"), gif_uri("flame")
+    tape_gif = gif_uri("tape")
     rainbow, counter, mail = gif_uri("rainbow"), gif_uri("counter"), gif_uri("email")
     bullet = gif_uri("bullet")
     return f'''<!doctype html>
@@ -69,10 +71,14 @@ table{{border-collapse:collapse;border:3px outset #808080;background:#fff;margin
 th{{background:#000080;color:#ff0;font:bold 13px "Courier New",monospace;padding:6px 9px;text-align:left;border:1px solid #808080}}
 td{{border:1px solid #808080;padding:6px 9px;font:13px/1.5 "Courier New",monospace;vertical-align:top;overflow-wrap:anywhere}}
 tr:nth-child(even) td{{background:#eef3ff}}
+.content th a, .content th a:visited{{color:#ff0}}
+th[scope="row"]{{white-space:nowrap}}
 .rainbow{{width:100%;height:6px;display:block;margin:6px 0}}
 pre{{background:#000;color:#0f0;font:13px/1.5 "Courier New",monospace;padding:12px;border:3px inset #808080;overflow-x:auto}}
 code{{font-family:"Courier New",monospace}}
 .blink{{animation:blink 1.1s steps(1) infinite}}
+.retro-list{{list-style:none;padding-left:6px}}
+.retro-list li{{margin:6px 0}}
 @keyframes blink{{50%{{visibility:hidden}}}}
 .newbadge{{vertical-align:middle;margin-left:8px}}
 .getbar td{{background:#fff;font:bold 14px "Comic Sans MS",cursive}}
@@ -85,16 +91,19 @@ code{{font-family:"Courier New",monospace}}
 .counter{{image-rendering:pixelated}}
 .note{{font-size:14px;color:#333}}
 .tscroll{{overflow-x:auto}}
+.tape{{height:12px;background:url({tape_gif}) repeat-x;background-size:48px 12px}}
 @media(max-width:640px){{.content{{padding:10px}}h1{{font-size:24px}}h2{{font-size:18px}}}}
 </style></head><body>
 {notice}
 <div class="win">
 <div class="titlebar"><span>{link(config['catalog_url'], config['title'])}</span><span>&#9733; EST. 2026 &#183; BEST AT 800&times;600 &#9733;</span></div>
+<div class="tape"></div>
 <marquee class="marq" scrollamount="4">&#9733; WELCOME TO THE DATASET FACTORY &#9733; PUBLIC DATA &#8594; CHECKED BUILDS &#8594; HONEST BASELINES &#9733; NO POP-UPS &#9733; NO COOKIES &#9733; NO TRACKERS &#9733; HAND-MADE HTML &#9733; UNDER CONSTRUCTION SINCE THE NINETIES &#9733;</marquee>
 <div class="content">
 {body}
 </div>
 <img class="rainbow" src="{rainbow}" alt="">
+<marquee class="marq" scrollamount="3">&#9733; THANKS FOR VISITING &#183; BOOKMARK THIS PAGE &#183; TELL A FRIEND ABOUT THE DATASET FACTORY &#183; SIGN THE GUESTBOOK BEFORE YOU LEAVE &#9733;</marquee>
 <div class="footer">
 <img class="counter" src="{counter}" alt="hit counter" width="77" height="15">
 <p>You are visitor number <strong>0042137</strong>. Thank you for riding the information superhighway to our page.</p>
@@ -159,14 +168,14 @@ def dataset_body(r):
 <h2>Get this dataset</h2>{navigation(r)}
 <h3>How to load it</h3><pre><code>{esc(snippet)}</code></pre>
 <p>The version links and checksums identify this artifact. Exclude the labelled holdout from the agent's workspace when running an evaluation.</p>
-<h2>What is inside</h2>
+<h2><img src="{gif_uri("flame")}" width="16" height="24" alt=""> What is inside <img src="{gif_uri("flame")}" width="16" height="24" alt=""></h2>
 <div class="tscroll"><table><thead><tr><th>Split</th><th>Rows</th><th>Positive labels</th></tr></thead><tbody>{split_rows}</tbody></table></div>
 <h2>Files and checksums</h2>
 <div class="tscroll"><table><thead><tr><th>Download</th><th>Bytes</th><th>SHA-256</th></tr></thead><tbody>{asset_rows}</tbody></table></div>
 <h2>Release notes &#183; {esc(r['release_date'])}</h2>{''.join('<p>'+esc(p)+'</p>' for p in r['post']['paragraphs'])}
 <h2>Why you can trust it</h2><p>{esc(r['qualification']['result'])} Gate {esc(r['qualification']['gate_version'])}.</p><p>{esc(r['baseline']['scope'])}</p>
 <nav aria-label="Documentation">{docs}</nav>
-<h2>Limits</h2><ul>{''.join('<li>'+esc(p)+'</li>' for p in r['limitations'])}</ul>
+<h2>Limits</h2><ul class="retro-list">{''.join('<li><img src="' + gif_uri("bullet") + '" width="10" height="10" alt=""> ' + esc(p) + '</li>' for p in r["limitations"])}</ul>
 <h2>Source, licences, and citation</h2><p>{link(r['source']['url'],r['source']['name'])}</p><p>{esc(terms['attribution'])}</p>
 <p>Source: {esc(terms['source_data'])}. Compilation: {esc(terms['data_compilation'])}. Code and documentation: {esc(terms['code'])}.</p>
 <p>{esc(terms['compilation_scope'])}</p><h3>Suggested citation</h3><p>{esc(terms['citation'])}</p>'''
@@ -222,7 +231,7 @@ def render(config, records, preview=False, editions=()):
         posts = []
         for r in records:
             url = config["catalog_url"] + 'releases/' + r["dataset"] + '/' + r["release_tag"] + '/'
-            posts.append(f'<li>{esc(r["release_date"])} &#8212; {link(url,r["post"]["title"])}</li>')
+            posts.append(f'<li><img src="{gif_uri("bullet")}" width="10" height="10" alt=""> {esc(r["release_date"])} &#8212; {link(url,r["post"]["title"])}</li>')
             body = f'<h1>{esc(r["post"]["title"])}</h1>'
             body += '<p><img src="' + gif_uri("donebadge") + '" width="96" height="22" alt="released and complete"> ' + esc(r["summary"]) + '</p>'
             body += ''.join('<p>' + esc(p) + '</p>' for p in r["post"]["paragraphs"])
@@ -230,6 +239,7 @@ def render(config, records, preview=False, editions=()):
             files[f'releases/{r["dataset"]}/{r["release_tag"]}/index.html'] = document(r["post"]["title"], body, config, preview)
         intro = f'''<h1><img src="{gif_uri("globe")}" width="36" height="36" alt="spinning globe"> The Dataset Factory</h1>
 <p class="intro">{esc(config["description"])}</p>
+<p><img src="{gif_uri("construction")}" width="150" height="40" alt="this page is always under construction"></p>
 <h2>What is this?</h2>
 <p>The Dataset Factory turns public data into prediction tasks. Each dataset answers a real question. Each answer can be scored. You get the source, the build code, and a measured baseline. Your system tries to beat the baseline. Every release can be rebuilt and checked.</p>
 <h2>How a dataset is made</h2>
@@ -248,7 +258,7 @@ def render(config, records, preview=False, editions=()):
 <p>Who is it for? Teams that evaluate coding agents and prediction models. Anyone who needs honest, reproducible numbers.</p>
 <h2><img src="{gif_uri("flame")}" width="16" height="24" alt=""> Datasets <img src="{gif_uri("flame")}" width="16" height="24" alt=""></h2>
 <div class="tscroll"><table><thead><tr><th>Dataset</th><th>Field</th><th>Rows</th><th>Released</th><th>What it asks</th></tr></thead><tbody>{''.join(card_rows)}</tbody></table></div>
-<h2>Release archive</h2><ul>{''.join(posts)}</ul>'''
+<h2><img src="{gif_uri("flame")}" width="16" height="24" alt=""> Release archive <img src="{gif_uri("flame")}" width="16" height="24" alt=""></h2><ul class="retro-list">{''.join(posts)}</ul>'''
         files["index.html"] = document(config["title"], intro, config, preview)
         files["catalog.json"] = canonical({"schema_version": 1, "releases": records})
     files["site-build.json"] = canonical({"renderer_version": VERSION, "preview": preview,
