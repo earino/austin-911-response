@@ -38,6 +38,7 @@
     },
     "scope": "one baseline only. No agent or harness comparison was run, and none is implied - that is outside this publication milestone."
   },
+  "configs": [],
   "dataset": "austin-911-response",
   "domain": "Public safety",
   "github_repository": "earino/austin-911-response",
@@ -67,11 +68,11 @@
     "gate_version": "1.3.0",
     "result": "PASSED - 33 checks, 0 failed, on the full 1,049,636-row artifact, on the worker"
   },
-  "record_sha256": "c890766d9d50f7c2e16a5ed02cd365930583a5157a0ab4c52b0e5c8b7da2138c",
+  "record_sha256": "2649c02ff7942e26939cb10fcf9e5e453a3b7d00524697c00555b2d49ac165bc",
   "release_date": "2026-09-19",
   "release_tag": "v2026.09",
   "schema_version": 1,
-  "site_revision": 1,
+  "site_revision": 2,
   "source": {
     "name": "Austin Open Data - APD 911 Calls for Service 2023-2026",
     "url": "https://datahub.austintexas.gov/d/e687-fx2y"
