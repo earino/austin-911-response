@@ -54,7 +54,9 @@
   "limitations": [
     "This is a derived research dataset, not an official City of Austin product or a recommendation about emergency response.",
     "The source outcome clock and prediction timestamp differ. Read the documented clock-offset measurements before interpreting the target.",
-    "The holdout is downloadable. Keep its labels outside the evaluated agent's workspace during an evaluation."
+    "The holdout is downloadable. Keep its labels outside the evaluated agent's workspace during an evaluation.",
+    "No claim of real-time or operational forecasting validity; historical availability at the prediction instant is assumed, not vintage-verified.",
+    "The labeled eval split is development/validation. Final holdout scoring requires prediction-time access restrictions; the original scorer provided the complete feature frame. Downloadable holdout labels must stay outside model development."
   ],
   "post": {
     "paragraphs": [
@@ -68,11 +70,11 @@
     "gate_version": "1.3.0",
     "result": "PASSED - 33 checks, 0 failed, on the full 1,049,636-row artifact, on the worker"
   },
-  "record_sha256": "e8000b16e652a04a9cb1ec14a0de3c769450119854425d0c77efc59d47017e24",
+  "record_sha256": "841ac03a4663311efb029e09faede5a1affe6caf03755d7f1001f01e0605aadf",
   "release_date": "2026-09-19",
   "release_tag": "v2026.09",
   "schema_version": 1,
-  "site_revision": 4,
+  "site_revision": 5,
   "source": {
     "name": "Austin Open Data - APD 911 Calls for Service 2023-2026",
     "url": "https://datahub.austintexas.gov/d/e687-fx2y"
@@ -91,7 +93,40 @@
       "rows": 572180
     }
   },
-  "summary": "Predict late first-unit arrival using information available when the call-taker's dispatch screen opens.",
+  "suitability": {
+    "artifact_version": "e4598317e406984fa590aacc5e7aff675867578c51ae1a84ebf6279bc42c3328",
+    "corrections": [],
+    "cross_row_audit": {
+      "scope": "Bounded attack search, 15 active minutes per repository, frozen plan; not a security proof Holdout recovery was not tested by this audit.",
+      "status": "bounded_no_recovery"
+    },
+    "dataset": "austin-911-response",
+    "decision": "retain_restricted",
+    "evaluation_access": "chronological",
+    "historical_availability": "assumed",
+    "limitations": [
+      "The bounded leakage audit's strongest lookup (identical full feature vector matched to unanimous train labels) covered 75,300/285,665 eval rows with 25,154 mismatches, AUC 0.6386: context memorization, not answer reconstruction - but a bounded search is not an absence proof.",
+      "Historical feature/label availability at the declared prediction instant is assumed from current snapshots, not verified against release vintages.",
+      "The current scorer passes the complete feature frame to predict_proba; prediction-time isolation is instructed but not mechanically enforced.",
+      "The response-time outcome clock begins when the call was answered, before the dispatch prediction instant; this is not a forecast of a fresh full 20-minute interval."
+    ],
+    "release_tag": "v2026.09",
+    "reviewed_on": "2026-10-24",
+    "schema_version": 1,
+    "selection": "unverified",
+    "summary": "Retained for retrospective model-development research with documented timing limitations. No answer recovery was found in the bounded audit; historical forecasting validity remains unverified.",
+    "supported_uses": [
+      "Retrospective train/validation model-development experiments under the documented timing and selection limitations",
+      "Final evaluation only under a protocol that isolates holdout data from development and prevents later rows influencing earlier predictions"
+    ],
+    "training_label_timing": "unverified",
+    "unsupported_uses": [
+      "Claims of verified real-time or operational forecasting validity",
+      "Treating development/validation scores as untouched final-test results"
+    ],
+    "vintage": "current_snapshot"
+  },
+  "summary": "Retrospective research on whether source-reported 911 response time exceeds 20 minutes, using recorded dispatch context with unverified historical availability.",
   "task_type": "binary-classification",
   "title": "Austin 911 response time",
   "urls": {

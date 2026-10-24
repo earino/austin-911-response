@@ -126,6 +126,26 @@ def navigation(record):
     return '<div class="tscroll"><table class="getbar" aria-label="Dataset destinations"><tr>' + cells + "</tr></table></div>"
 
 
+def suitability_html(r):
+    value = r.get("suitability")
+    if not value:
+        return '<section><h2>Suitability review pending</h2><p>Historical qualification is not certification of real-time forecasting validity.</p></section>'
+    facts = (("Historical feature availability", value["historical_availability"]),
+             ("Training-label timing", value["training_label_timing"]),
+             ("Data vintage", value["vintage"]), ("Row selection", value["selection"]),
+             ("Required evaluation access", value["evaluation_access"]))
+    body = '<section aria-label="Dataset suitability"><h2>Suitability and evaluation</h2><p><strong>' + esc(value["summary"]) + '</strong></p>'
+    body += '<p><strong>Supported uses:</strong> ' + esc('; '.join(value["supported_uses"])) + '</p>'
+    body += '<p><strong>Not supported:</strong> ' + esc('; '.join(value["unsupported_uses"])) + '</p>'
+    body += '<dl>' + ''.join('<dt>' + esc(k) + '</dt><dd>' + esc(v.replace('_', ' ')) + '</dd>' for k, v in facts) + '</dl>'
+    body += '<p>Cross-row audit: ' + esc(value["cross_row_audit"]["status"].replace('_', ' ')) + '. ' + esc(value["cross_row_audit"]["scope"]) + '</p>'
+    body += '<p>The labeled eval split is development/validation data. Isolate final holdout data from development and prevent later rows influencing earlier predictions. Published data is not a secure hidden test service.</p>'
+    body += '<ul>' + ''.join('<li>' + esc(v) + '</li>' for v in value['limitations']) + '</ul>'
+    if value['corrections']:
+        body += '<h3>Corrections to historical documentation</h3><ul>' + ''.join('<li>' + esc(v) + '</li>' for v in value['corrections']) + '</ul>'
+    return body + '<p>Reviewed ' + esc(value['reviewed_on']) + '. Applies to this artifact; original data and tags are preserved.</p></section>'
+
+
 def dataset_body(r):
     """Inverted pyramid: what it is, how to get it, what is inside, then the fine print."""
     rows = sum(s["rows"] for s in r["splits"].values())
@@ -163,7 +183,8 @@ def dataset_body(r):
                       for k, v in r["baseline"]["metrics"].items())
     return f'''<h1>{esc(r['title'])}</h1>
 <p class="intro">{esc(r['summary'])}</p>
-<p><img src="{gif_uri("donebadge")}" width="96" height="22" alt="released and complete"> <strong>This release is finished.</strong> Every number below is measured and reproducible.</p>
+<p>Versioned research data. Read the suitability requirements before interpreting scores.</p>
+{suitability_html(r)}
 <h2>At a glance</h2><div class="tscroll"><table><tbody>{facts}{metrics}<tr><th scope="row">Artifact</th><td><code>{esc(r['artifact_version'])}</code></td></tr></tbody></table></div>
 <h2>Get this dataset</h2>{navigation(r)}
 <h3>How to load it</h3><pre><code>{esc(snippet)}</code></pre>
@@ -173,13 +194,14 @@ def dataset_body(r):
 <h2>Files and checksums</h2>
 <div class="tscroll"><table><thead><tr><th>Download</th><th>Bytes</th><th>SHA-256</th></tr></thead><tbody>{asset_rows}</tbody></table></div>
 <h2>Release notes &#183; {esc(r['release_date'])}</h2>{''.join('<p>'+esc(p)+'</p>' for p in r['post']['paragraphs'])}
-<h2>Why you can trust it</h2><p>{esc(r['qualification']['result'])} Gate {esc(r['qualification']['gate_version'])}.</p><p>{esc(r['baseline']['scope'])}</p>
+<h2>Recorded structural checks and baselines</h2><p>{esc(r['qualification']['result'])} Gate {esc(r['qualification']['gate_version'])}.</p><p>{esc(r['baseline']['scope'])}</p>
+<p>These historical checks do not establish availability at each prediction time or protection against every shortcut. Scores below describe the recorded protocol.</p>
 <nav aria-label="Documentation">{docs}</nav>
 <h2>Limits</h2><ul class="retro-list">{''.join('<li><img src="' + gif_uri("bullet") + '" width="10" height="10" alt=""> ' + esc(p) + '</li>' for p in r["limitations"])}</ul>
 <h2>Source, licences, and citation</h2><p>{link(r['source']['url'],r['source']['name'])}</p><p>{esc(terms['attribution'])}</p>
 <p>Source: {esc(terms['source_data'])}. Compilation: {esc(terms['data_compilation'])}. Code and documentation: {esc(terms['code'])}.</p>
 <p>{esc(terms['compilation_scope'])}</p><h3>Suggested citation</h3><p>{esc(terms['citation'])}</p>'''
-def render(config, records, preview=False, editions=()):
+def render(config, records, preview=False, editions=(), _historical=False):
     """Pure rendering: no filesystem, clock, credentials, remote requests or private metadata."""
     if config.get("schema_version") != 1 or config.get("kind") not in ("catalog", "dataset"):
         raise ValueError("Unsupported renderer configuration")
@@ -195,6 +217,20 @@ def render(config, records, preview=False, editions=()):
         for value in (r["dataset"], r["release_tag"]):
             if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,99}", value):
                 raise ValueError("Unsafe dataset or version path")
+        # A record that documents no split rows renders as a homepage "Rows = 0" and an
+        # empty split table (the abs v2026.10 site record shipped that way when the
+        # projector had not yet learned to read its manifest). Refuse instead: every
+        # split needs a positive integer row count, and when train/eval/holdout are
+        # all documented, the total across splits must equal their sum so no fourth
+        # split can silently inflate the homepage figure.
+        if not _historical and (not r.get("splits") or not all(type(s.get("rows")) is int and s["rows"] > 0
+                                          for s in r["splits"].values())):
+            raise ValueError("Release record must document every split with positive row counts")
+        documented = ("train", "eval", "holdout")
+        if not _historical and all(k in r["splits"] for k in documented):
+            total_rows = sum(s["rows"] for s in r["splits"].values())
+            if total_rows != sum(r["splits"][k]["rows"] for k in documented):
+                raise ValueError("Total rows must equal train + eval + holdout")
         key = (r["dataset"], r["release_tag"])
         if key in seen:
             raise ValueError("Duplicate release record")
@@ -227,7 +263,7 @@ def render(config, records, preview=False, editions=()):
                 f'<tr><th scope="row">{link(r["urls"]["version"], r["title"])}{badge}</th>'
                 f'<td>{esc(r["domain"])}<br>{esc(r["task_type"])}</td>'
                 f'<td>{rows:,}</td><td>{esc(r["release_date"])}</td>'
-                f'<td>{esc(r["summary"])}</td></tr>')
+                f'<td>{esc(r["summary"])}<p><strong>{esc(r.get("suitability", {}).get("summary", "Suitability review pending"))}</strong></p></td></tr>')
         posts = []
         for r in records:
             url = config["catalog_url"] + 'releases/' + r["dataset"] + '/' + r["release_tag"] + '/'
@@ -238,7 +274,7 @@ def render(config, records, preview=False, editions=()):
                      + link(r["urls"]["version"], "open the dataset page") + '</p></div>')
             posts.append(entry)
             body = f'<div class="eyebrow">Release notes · {esc(r["release_date"])} · announcement</div>'
-            body += f'<h1>{esc(r["post"]["title"])}</h1>'
+            body += f'<h1>{esc(r["post"]["title"])}</h1>' + suitability_html(r)
             body += ''.join('<p>' + esc(p) + '</p>' for p in r["post"]["paragraphs"])
             body += '<p>' + link(r["urls"]["version"], '→ Open the dataset page for numbers, files and checksums') + '</p>'
             files[f'releases/{r["dataset"]}/{r["release_tag"]}/index.html'] = document(r["post"]["title"], body, config, preview)
@@ -272,7 +308,7 @@ def render(config, records, preview=False, editions=()):
         base = (f'versions/{r["release_tag"]}/editions/' if config["kind"] == "dataset" else
                 f'releases/{r["dataset"]}/{r["release_tag"]}/editions/') + str(r["site_revision"]) + '/'
         # Validate and render each immutable edition through the same contract.
-        historical = render(config, [r], preview=preview)
+        historical = render(config, [r], preview=preview, _historical=True)
         files[base + "release.json"] = canonical(r)
         files[base + "index.html"] = historical["index.html"]
     return files
